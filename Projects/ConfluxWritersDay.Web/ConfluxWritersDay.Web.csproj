@@ -75,30 +75,30 @@
     <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Markdown\Contact.md">
+    <Content Include="Markdown\Contact.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Markdown\SuccessfulRegistration.md">
+    </Content>
+    <Content Include="Markdown\SuccessfulRegistration.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Markdown\SuccessfulRegistrationEmail.md">
+    </Content>
+    <Content Include="Markdown\SuccessfulRegistrationEmail.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Markdown\Participate.md">
+    </Content>
+    <Content Include="Markdown\Participate.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Markdown\Pricing.md">
+    </Content>
+    <Content Include="Markdown\Pricing.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Markdown\Program.md">
+    </Content>
+    <Content Include="Markdown\Program.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Markdown\Registration.md">
+    </Content>
+    <Content Include="Markdown\Registration.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Markdown\Venue.md">
+    </Content>
+    <Content Include="Markdown\Venue.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap-responsive.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -131,10 +131,12 @@
   <ItemGroup>
     <Content Include="Views\Home\Markdown.cshtml" />
     <Content Include="Packages.config" />
-    <None Include="Markdown\Home.md">
+    <Content Include="Markdown\Home.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Markdown\README.md" />
+    </Content>
+    <Content Include="Markdown\README.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
