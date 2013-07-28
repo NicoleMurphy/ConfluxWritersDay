@@ -12,6 +12,8 @@ And I want a link to download and post a paper registration
 And I want the link to look at the program
 And I want the link to how I can participate
 And I want the link to venue information
+And I want a link to contact the convenor for more information
+
 
 Given I am choosing to register via paper
 When I click on the link
