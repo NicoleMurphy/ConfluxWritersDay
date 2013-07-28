@@ -1,0 +1,10 @@
+Story: Home Page
+
+As a
+I want
+So that
+
+Scenario: Visit home
+Given
+When
+Then

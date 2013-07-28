@@ -1,0 +1,14 @@
+Story: Home Page
+
+As a visitor
+I want to see what the day is about
+So that I can decide whether to come or not
+
+Scenario: Visit home page
+Given I am visitor
+When I navigate to home page
+Then I want to see basic run down of the day
+And I want to see link to pricing & registration page
+And I want to see link to the program
+And I want to see link to how I can participate
+And I want to see link to information about the venue
