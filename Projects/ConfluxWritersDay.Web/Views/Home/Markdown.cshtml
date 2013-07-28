@@ -1,0 +1,7 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<dynamic>
+              
+@{
+    Layout = "Shared/PageLayout.cshtml";
+}
+
+@Html.Raw(@Model.Html)
