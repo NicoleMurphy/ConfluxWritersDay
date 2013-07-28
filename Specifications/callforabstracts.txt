@@ -1,0 +1,7 @@
+Story
+As a potential submitter of an abstract
+I want a clear explanation of what I need to do to be considered for the program
+So I can submit my abstract in a correct and timely manner
+
+Scenario - visiting the Call for Abstracts page
+If 
