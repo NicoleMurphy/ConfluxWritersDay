@@ -1,10 +1,10 @@
-Story: Home Page
+Story: 
 
 As a
 I want
 So that
 
-Scenario: Visit home
+Scenario: 
 Given
 When
 Then

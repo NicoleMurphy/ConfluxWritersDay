@@ -3,7 +3,7 @@ As a visitor
 I want to know more about where the day is being held and how to get there, plus accommodation options
 So I can decide if I want to attend or not.
 
-Scenario - visiting the venue page
+Scenario: visiting the venue page
 Given that I am a vistor
 When I navigate to the page
 Then I want to see where the day is being held

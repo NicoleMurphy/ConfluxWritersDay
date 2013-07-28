@@ -3,7 +3,7 @@ As a potential submitter of an abstract
 I want a clear explanation of what I need to do to be considered for the program
 So I can submit my abstract in a correct and timely manner
 
-Scenario - visiting the Call for Abstracts page
+Scenario: visiting the Call for Abstracts page
 Given I am interested in submitting an abstract to be considered for the program
 When I navigate to the page
 Then I want to see a clear explanation of what is expected in the abstract

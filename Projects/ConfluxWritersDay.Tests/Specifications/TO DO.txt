@@ -1,0 +1,10 @@
+﻿# To do
+
+## Nicky
+
+- Clean up Registration Page.txt.
+- Fill in Markdown\SuccessfulRegistrationEmail.txt.
+
+## Tim
+
+- Review all specifications

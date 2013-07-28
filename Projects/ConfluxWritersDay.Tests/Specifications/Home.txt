@@ -10,6 +10,6 @@ When I navigate to home page
 Then I want to see basic run down of the day
 And I want to see link to pricing & registration page
 And I want to see link to the program
-And I want to see link to how I can participate
+And I want to see link to how I can participate (Call for abstracts)
 And I want to see link to information about the venue
-And I want a link to contact the convenor for more information
+And I want a email link to contact the convenor for more information
