@@ -26,7 +26,6 @@ namespace ConfluxWritersDay.Web.Repositories
             var fileName = GetFullFileName(name);
             var markdown = File.ReadAllText(fileName);
 
-#if DEBUG
             if (markdown.Trim() == "todo")
             {
                 markdown = "<h1>todo: " + name + @"</h1>
@@ -55,7 +54,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ergo ita: non posse hon
 </div>";
 
             }
-#endif
+
             return markdown;
         }
 
