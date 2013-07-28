@@ -27,3 +27,7 @@ And I want it clearly explained
 And I want multiple options for payment
 And I want an automatic email confirming that my registration has gone through
 
+Given I am registering early
+When I start the registration process, regardless of whether it's online or paper
+Then I want a clear explanation of how I will be told whether I qualify for the earlybird or not
+And I want a clear deadline as to when payment is expected
