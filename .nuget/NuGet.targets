@@ -14,6 +14,9 @@
         
         <!-- Download NuGet.exe if it does not already exist -->
         <DownloadNuGetExe Condition=" '$(DownloadNuGetExe)' == '' ">false</DownloadNuGetExe>
+        
+        <PackageSources>"http://www.myget.org/F/timpmurphy/;https://nuget.org/api/v2/"</PackageSources>
+        
     </PropertyGroup>
     
     <ItemGroup Condition=" '$(PackageSources)' == '' ">
