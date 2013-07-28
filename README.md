@@ -1,4 +1,4 @@
 # ConfluxWritersDay
 
-Web site for upcoming Conflux Writers' Day.
+Under development: Web site for upcoming Conflux Writers' Day.
 
