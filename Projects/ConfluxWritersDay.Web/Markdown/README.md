@@ -22,4 +22,18 @@ sdkjnsdafjkldsfjikl;
 
 sdfkljasdfjklsdafkjl;
 
+<div class="alert">
+standard markdown
+</div>
 
+<div class="alert alert-danger">
+standard markdown
+</div>
+
+<div class="alert alert-success">
+standard markdown
+</div>
+
+<div class="alert alert-info">
+standard markdown
+</div>

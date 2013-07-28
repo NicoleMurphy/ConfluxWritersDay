@@ -48,7 +48,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Specifications\CallForAbstracts.txt" />
+    <Content Include="Specifications\Participate.txt" />
     <Content Include="Specifications\Home.txt" />
     <Content Include="Specifications\Pricing.txt" />
     <Content Include="Specifications\Program.txt" />
