@@ -40,4 +40,4 @@ In submitting the abstract, you are automatically giving the following permissio
 <h1>Abstract submission</h1>
 You can submit the abstract <a href="https://www.easychair.org/conferences/?conf=cwd13" target="_blank">here</a>. We are using the Easychair system for the abstract submission process. You'll need to sign up for an Easychair account in order to submit the abstract.
 
-For enquries please email confluxwritersday@gmail.com
+For enquries please email [confluxwritersday@gmail.com](mailto:confluxwritersday@gmail.com)

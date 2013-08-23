@@ -3,7 +3,7 @@
 
 **Saturday April 5 2014**
 
-The inaugural Conflux Writer’s Day will take place at [University House] (http://www.anu.edu.au/unihouse/), Australian National University, Canberra. For one day, Australia’s speculative fiction writers will gather for hours of professional development.
+The inaugural Conflux Writer’s Day will take place at [University House](http://www.anu.edu.au/unihouse/), Australian National University, Canberra. For one day, Australia’s speculative fiction writers will gather for hours of professional development.
 
 The theme of the day is ‘The Writer’s Journey’, which will be covered by four sub-themes – ‘Writing Skills’, ‘Writing Processes’, ‘Submission and Publication’ and ‘Building a Career’.
 
@@ -20,4 +20,4 @@ The concurrent presentations will be chosen through blind review of abstracts su
 
 **NOTE - This is being held the same day as the Aurealis Awards**
 
-For enquiries, please email confluxwritersday@gmail.com
+For enquiries, please email [confluxwritersday@gmail.com](mailto:confluxwritersday@gmail.com).
