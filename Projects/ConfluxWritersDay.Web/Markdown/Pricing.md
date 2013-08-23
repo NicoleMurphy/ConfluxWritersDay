@@ -2,7 +2,7 @@
 Registration is for the full day and gives you access to any session you wish to attend and all the powerpoint presentations following the day. It includes morning/afternoon tea and lunch. You will also receive the conference handbook and satchel.
 
 The first thirty people who register will receive the early bird rate. You’ll be invoiced for the correct registration rate. Payment of registration is required prior to attending.<span style="color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, 'Nimbus Sans L', sans-serif; font-style: normal;"> </span>
-<table>
+<table class="table table-bordered">
 <tbody>
 <tr>
 <td>Earlybird (first thirty registrations only)</td>

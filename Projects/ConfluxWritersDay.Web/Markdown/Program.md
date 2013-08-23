@@ -6,7 +6,7 @@ Each presentation is an individual presentation - there are no panels.
 
 Every presentation is about an aspect of writing and producing speculative fiction. It is not about discussing speculative fiction or other elements of fandom.
 
-<table>
+<table class="table table-bordered">
 <tbody>
 <tr>
 <td>9.30am</td>
