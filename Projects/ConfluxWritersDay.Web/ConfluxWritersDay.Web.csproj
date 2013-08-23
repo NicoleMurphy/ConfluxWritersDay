@@ -60,6 +60,7 @@
       <HintPath>..\..\packages\OpenMagic.0.1.19.0\lib\net40\OpenMagic.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -93,9 +94,6 @@
     <Content Include="Markdown\Program.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Markdown\Registration.md">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Markdown\Venue.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -127,6 +125,7 @@
     <Compile Include="Repositories\IMarkdownRepository.cs" />
     <Compile Include="Repositories\MarkdownRepository.cs" />
     <Compile Include="ViewModels\Home\MarkdownViewModel.cs" />
+    <Compile Include="ViewModels\Home\RegistrationViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Markdown.cshtml" />
@@ -144,6 +143,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Home\Registration.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

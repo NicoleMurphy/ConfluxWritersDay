@@ -1,0 +1,125 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<dynamic>
+              
+@{
+    Layout = "Shared/PageLayout.cshtml";
+}
+
+<form class="form-horizontal">
+
+    <fieldset>
+
+        <legend>Registration</legend>
+    
+        <div class="control-group">
+            <label class="control-label">First Name</label>
+            <div class="controls">
+                <input id="FirstName" name="FirstName" type="text" placeholder="First Name" class="input-xlarge">
+            </div>
+        </div>
+    
+        <div class="control-group">
+            <label class="control-label">Last Name</label>
+            <div class="controls">
+                <input id="LastName" name="LastName" type="text" placeholder="Last Name" class="input-xlarge">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">Address</label>
+            <div class="controls">
+                <input id="AddressLine1" name="AddressLine1" type="text" placeholder="Address Line 1" class="input-xlarge">
+            </div>
+        </div>
+    
+        <div class="control-group">
+            <div class="controls">
+                <input id="AddressLine2" name="AddressLine2" type="text" placeholder="Address Line 2" class="input-xlarge">
+            </div>
+        </div>
+    
+        <div class="control-group">
+            <label class="control-label">City</label>
+            <div class="controls">
+                <input id="City" name="City" type="text" placeholder="City" class="input-xlarge">
+            </div>
+        </div>
+    
+        <div class="control-group">
+            <label class="control-label">State</label>
+            <div class="controls">
+                <input id="State" name="State" type="text" placeholder="State" class="input-xlarge">
+            </div>
+        </div>
+    
+        <div class="control-group">
+            <label class="control-label">Postcode</label>
+            <div class="controls">
+                <input id="Postcode" name="Postcode" type="text" placeholder="Postcode" class="input-xlarge">
+            </div>
+        </div>
+    
+        <div class="control-group">
+            <label class="control-label">Email address</label>
+            <div class="controls">
+                <input id="EmailAddress" name="EmailAddress" type="text" placeholder="example@example.org" class="input-xlarge">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">Telephone number</label>
+            <div class="controls">
+                <input id="TelephoneNumber" name="TelephoneNumber" type="text" placeholder="(99) 9999 9999" class="input-xlarge">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">Registration Type</label>
+            <div class="controls">
+                <select id="RegistrationType" name="RegistrationType" class="input-xlarge">
+                    <option>Conflux 9 Member</option>
+                    <option>CSFG Member</option>
+                    <option>ACT Writers Centre Member</option>
+                    <option>Non-Member</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">Dietary requirements</label>
+            <div class="controls">
+                <textarea id="DietaryRequirements" name="DietaryRequirements" rows="5">Dietary requirements</textarea>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">Special requirements</label>
+            <div class="controls">
+                <textarea id="SpecialRequirements" name="SpecialRequirements" rows="5">Special requirements</textarea>
+            </div>
+        </div>
+    
+        <div class="control-group">
+            <label class="control-label">Payment method</label>
+            <div class="controls">
+                <select id="PaymentMethod" name="PaymentMethod" class="input-xlarge">
+                    <option>Paypal</option>
+                    <option>Cheque / Money order</option>
+                    <option>Direct Deposit</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="control-group">
+        <p>todo: show price. 30- members</p>
+        </div>
+
+        <div class="control-group">
+            <div class="controls">
+                <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+
+    </fieldset>
+
+</form>
+
