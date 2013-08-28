@@ -40,3 +40,7 @@ You can always swap your registration with someone. Sell it to them if you wish.
 
 No. But if you wish to advertise to this audience, there will be sponsorship opportunities, advertising in the handbook and inserts can be placed in the con bag. Email [confluxwritersday@gmail.com](mailto:confluxwritersday@gmail.com) for more details.
 
+**Is there an anti-harrassment policy?**
+
+Conflux Incorporated is currently revising the anti-harrassment policy and this will be available in the next few weeks.
+
