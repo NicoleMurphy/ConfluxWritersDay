@@ -27,3 +27,21 @@ Website: [www.kaaronwarren.wordpress.com](a href=http://kaaronwarren.wordpress.c
 Twitter @kaaronwarren
 
 Releasing soon: [The Gate Theory, Cohesion Press](a href=http://cohesionpress.com/books/the-gate-theory-kaaron-warren/)
+
+## Ian McHugh
+
+Ian’s first success as a speculative fiction writer was winning the short story contest at the 2004 Australian national SF convention. Since then he has sold stories to professional and semi-pro magazines, webzines and anthologies in Australia and internationally. His stories have won grand prize in the Writers of the Future contest, been shortlisted four times at Australia’s Aurealis Awards (winning Best Fantasy Short Story in 2010) and appeared in the Locus annual Recommended Reading List. He graduated from the Clarion West writers’ workshop in 2006. His first short story collection, tentatively titled Angel Dust, will be published by Ticonderoga Publications in 2014. Ian lives in Canberra, Australia and is a member of the Canberra Speculative Fiction Guild.
+
+Ian will be speaking at 3.30pm on 'Rejectomancy and the dark art of getting your stories published' (Submitting and Publishing)
+
+Website: [www.ianmchugh.wordpress.com](a href=http://ianmchugh.wordpress.com/)
+
+## Keri Arthur
+
+Keri Arthur, author of the New York Times bestselling Riley Jenson Guardian series, has now written more than twenty-eight novels. She’s received several nominations in the Best Contemporary Paranormal category of the Romantic Times Reviewers Choice Awards and has won RT’s Career Achievement Award for urban fantasy. She lives with her daughter in Melbourne, Australia.
+
+Keri will be speaking at 4.10pm on 'The career path of a New York Times bestseller' (Building a career)
+
+Website: [www.keriarthur.com](a href=http://www.keriarthur.com/)
+
+Twitter: @kezarthur
