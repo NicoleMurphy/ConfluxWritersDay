@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nancy.TinyIoc;
-using ConfluxWritersDay.Web.Repositories;
 
 namespace CroquetScores.Domain.UnitTests
 {
@@ -13,7 +12,6 @@ namespace CroquetScores.Domain.UnitTests
             var container = TinyIoCContainer.Current;
 
             container.AutoRegister();
-            var can = container.CanResolve<IMembershipOrganisationRepository>();
         }
 
         [AssemblyCleanup]

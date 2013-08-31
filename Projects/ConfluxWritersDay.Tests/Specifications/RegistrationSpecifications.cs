@@ -11,7 +11,7 @@ namespace ConfluxWritersDay.Tests.Specifications
     [TestClass]
     public class RegistrationSpecifications : BddFeature
     {
-        private RegistrationPage RegistrationPage;
+        private RegistrationPage Page;
         private RegistrationViewModel ViewModel = new RegistrationViewModel();
 
         public RegistrationSpecifications()
@@ -31,13 +31,13 @@ namespace ConfluxWritersDay.Tests.Specifications
             s["And my suburb is 'Under'"] = p => this.ViewModel.Suburb = p[0];
             s["And my state is 'Belly'"] = p => this.ViewModel.State = p[0];
             s["And my postcode is '666'"] = p => this.ViewModel.Postcode = p[0];
-            s["And my phone is '(02) 6232 2304'"] = p => this.ViewModel.Postcode = p[0];
+            s["And my telephone number is '(02) 6232 2304'"] = p => this.ViewModel.TelephoneNumber = p[0];
             s["And my email address is 'tim@example.com'"] = p => this.ViewModel.EmailAddress = p[0];
             s["And entered dietary requirements 'Meat'"] = p => this.ViewModel.DietaryRequirements = p[0];
-            s["And entered special requirements 'Meat'"] = p => this.ViewModel.SpecialRequirements = p[0];
+            s["And entered special requirements 'Wheelchair access'"] = p => this.ViewModel.SpecialRequirements = p[0];
             s["And selected payment method of 'Cheque'"] = p => this.ViewModel.PaymentMethod = p[0];
-            s["And selected membership organisation of 'Conflux 9'"] = p => this.ViewModel.MembershipOrganisation = p[0];
-            s["When I submit my registration"] = p => this.ClickSubmitButton();
+            s["And selected membership organisation of 'Conflux9'"] = p => this.ViewModel.MembershipOrganisation = p[0];
+            s["When I submit my registration"] = p => this.Page.Submit(this.ViewModel);
             s["Then I will see thank you page"] = null;
             s["And I will receive an email"] = null;
 
@@ -174,12 +174,8 @@ namespace ConfluxWritersDay.Tests.Specifications
 
         private void NavigateToRegistrationPage()
         {
-            this.RegistrationPage = Host.Instance.NavigateToInitialPage<RegistrationPage>();
+            this.Page = Host.Instance.NavigateToInitialPage<RegistrationPage>(RegistrationPage.Url);
         }
 
-        private void ClickSubmitButton()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }
