@@ -2,7 +2,7 @@
 {
     public interface IMarkdownRepository
     {
-        bool MarkdownExists(string path);
         string GetMarkdown(string fileName);
+        bool MarkdownExists(string path);
     }
 }
