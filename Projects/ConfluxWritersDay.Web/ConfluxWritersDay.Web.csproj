@@ -76,6 +76,27 @@
     <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\bonechime.jpg" />
+    <Content Include="Images\Conflux-writers_blk.jpg" />
+    <Content Include="Images\dancing-with-the-devil.jpg" />
+    <Content Include="Images\darkness-unmasked.jpg" />
+    <Content Include="Images\debris.jpg" />
+    <Content Include="Images\full-moon-rising.jpg" />
+    <Content Include="Images\grindinghouse.jpg" />
+    <Content Include="Images\hotelhotel.jpg" />
+    <Content Include="Images\ianmchugh.JPG" />
+    <Content Include="Images\joanneanderton.jpg" />
+    <Content Include="Images\kaaronwarren.jpg" />
+    <Content Include="Images\keriarthur.jpg" />
+    <Content Include="Images\mistification.jpg" />
+    <Content Include="Images\next.jpg" />
+    <Content Include="Images\rydgeslakeside.jpg" />
+    <Content Include="Images\slights.jpg" />
+    <Content Include="Images\splinteredwalls.jpg" />
+    <Content Include="Images\suited.jpg" />
+    <Content Include="Images\universityhouse.JPG" />
+    <Content Include="Images\walkingthetree.jpg" />
+    <Content Include="Images\WOTF24awards.jpg" />
     <Content Include="Markdown\Contact.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -140,6 +161,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Markdown\Keynote-Speakers.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Markdown\Invoice-Paypal.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Markdown\Invoice-Cheque.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Markdown\Invoice-DirectDeposit.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.min.map" />

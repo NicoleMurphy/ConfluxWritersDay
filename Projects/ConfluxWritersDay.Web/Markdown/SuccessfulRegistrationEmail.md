@@ -12,21 +12,23 @@ We look forward to welcoming you to Canberra.
 
 Kind Regards
 
-**Nicole Murphy
-
-Convenor, Conflux Writers' Day**
+**Nicole Murphy**<br />
+**Convenor, Conflux Writers' Day**
 
 ## Registration Itinerary
 
-{FirstName} {LastName}
-{AddressLineOne}
-{AddressLineTwo}
+{FirstName} {LastName}<br />
+{AddressLineOne}<br />
+{AddressLineTwo}<br />
 {City} {State} {Postcode}
 
 Registration type: {RegistrationType}
+{IfDietaryRequirements}
 
 Dietary Requirements: {DietaryRequirements}
+{EndIfDietaryRequirements}
+{IfSpecialRequirements}
 
 Special Requirements: {SpecialRequirements}
-
+{EndIfSpecialRequirements}
 

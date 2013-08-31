@@ -16,8 +16,8 @@ And my address is entered
 And my phone is entered
 And my email address* is entered
 And entered special dietary requirements
-*** And selected payment method of Cheque, PayPal or Direct Deposit
-*** And selected a member organisation of a, b, c, none
+And selected payment method of Cheque, PayPal or Direct Deposit
+And selected a member organisation of Conflux 9 Member, CSFG Member, ACT Writers Centre Member or Non-Member
 When I submit my registration
 Then I will see thank you page
 And I will receive an email
@@ -44,7 +44,20 @@ And someone else typed quicker than me
 When I hit submit
 Then I am told I missed out
 
+Scenario: direct deposit
+Given I have completed registration 
+And the payment method is credit payment
+When I am sent an email
+Then I the direct deposit invoice is attached
 
+Scenario: paypal
+Given I have completed registration 
+And the payment method is credit payment
+When I am sent an email
+Then I the paypal invoice is attached
 
-
-
+Scenario: cheque
+Given I have completed registration 
+And the payment method is credit payment
+When I am sent an email
+Then I the cheque invoice is attached
