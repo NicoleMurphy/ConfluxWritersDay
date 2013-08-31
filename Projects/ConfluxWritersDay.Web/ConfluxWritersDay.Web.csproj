@@ -85,27 +85,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\bonechime.jpg" />
-    <Content Include="Images\Conflux-writers_blk.jpg" />
-    <Content Include="Images\dancing-with-the-devil.jpg" />
-    <Content Include="Images\darkness-unmasked.jpg" />
-    <Content Include="Images\debris.jpg" />
-    <Content Include="Images\full-moon-rising.jpg" />
-    <Content Include="Images\grindinghouse.jpg" />
-    <Content Include="Images\hotelhotel.jpg" />
-    <Content Include="Images\ianmchugh.JPG" />
-    <Content Include="Images\joanneanderton.jpg" />
-    <Content Include="Images\kaaronwarren.jpg" />
-    <Content Include="Images\keriarthur.jpg" />
-    <Content Include="Images\mistification.jpg" />
-    <Content Include="Images\next.jpg" />
-    <Content Include="Images\rydgeslakeside.jpg" />
-    <Content Include="Images\slights.jpg" />
-    <Content Include="Images\splinteredwalls.jpg" />
-    <Content Include="Images\suited.jpg" />
-    <Content Include="Images\universityhouse.JPG" />
-    <Content Include="Images\walkingthetree.jpg" />
-    <Content Include="Images\WOTF24awards.jpg" />
+    <Content Include="Content\Images\bonechime.jpg" />
+    <Content Include="Content\Images\conflux-writers-black.jpg" />
+    <Content Include="Content\Images\dancing-with-the-devil.jpg" />
+    <Content Include="Content\Images\darkness-unmasked.jpg" />
+    <Content Include="Content\Images\debris.jpg" />
+    <Content Include="Content\Images\full-moon-rising.jpg" />
+    <Content Include="Content\Images\grindinghouse.jpg" />
+    <Content Include="Content\Images\hotelhotel.jpg" />
+    <Content Include="Content\Images\ianmchugh.jpg" />
+    <Content Include="Content\Images\joanneanderton.jpg" />
+    <Content Include="Content\Images\kaaronwarren.jpg" />
+    <Content Include="Content\Images\keriarthur.jpg" />
+    <Content Include="Content\Images\mistification.jpg" />
+    <Content Include="Content\Images\next.jpg" />
+    <Content Include="Content\Images\rydgeslakeside.jpg" />
+    <Content Include="Content\Images\slights.jpg" />
+    <Content Include="Content\Images\splinteredwalls.jpg" />
+    <Content Include="Content\Images\suited.jpg" />
+    <Content Include="Content\Images\universityhouse.jpg" />
+    <Content Include="Content\Images\walkingthetree.jpg" />
+    <Content Include="Content\Images\WOTF24awards.jpg" />
     <Content Include="Markdown\Contact.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -131,9 +131,6 @@
     <Content Include="Content\bootstrap-responsive.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Images\conflux-writers-black.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Content\Images\conflux-writers-white.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -199,7 +196,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

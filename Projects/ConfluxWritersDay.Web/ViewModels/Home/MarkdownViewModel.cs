@@ -1,6 +1,7 @@
 ﻿using System;
 using MarkdownSharp;
 using OpenMagic;
+using OpenMagic.Extensions;
 
 namespace ConfluxWritersDay.Web.ViewModels.Home
 {
@@ -19,6 +20,8 @@ namespace ConfluxWritersDay.Web.ViewModels.Home
 
         private string ToHtml(string markdownText)
         {
+            var text = ReplaceImageTags(markdownText);
+
             var markdown = new Markdown(
                 new MarkdownOptions()
                 {
@@ -27,9 +30,35 @@ namespace ConfluxWritersDay.Web.ViewModels.Home
                 }
             );
 
-            var html = markdown.Transform(markdownText);
+            var html = markdown.Transform(text);
 
             return html;
+        }
+
+        private string ReplaceImageTags(string markdownText)
+        {
+            var text = markdownText;
+            var indexOfStartImageTag = text.IndexOf("{Image=");
+
+            while (indexOfStartImageTag > -1)
+            {
+                var indexOfEndImageTag = text.IndexOf("}", indexOfStartImageTag);
+                var imageTag = text.Substring(indexOfStartImageTag, indexOfEndImageTag - indexOfStartImageTag);
+                var imageParts = imageTag.Split(',');
+                var src = imageParts[0].TextAfter("=");
+                var alt = imageParts[1].TextAfter("=");
+                var css = imageParts[2].TextAfter("=").ToLower();
+
+                var img = string.Format("<img src=\"/Content/Images/{0}\" alt=\"{1}\" class=\"image-{2}\" />", src, alt, css);
+                var before = text.Substring(0, indexOfStartImageTag);
+                var after = text.Substring(indexOfEndImageTag + 1);
+
+                text = before + img + after;
+
+                indexOfStartImageTag = text.IndexOf("{Image=");
+            }
+
+            return text;
         }
     }
 }

@@ -22,4 +22,4 @@ The concurrent presentations will be chosen through blind review of abstracts su
 
 For enquiries, please email [confluxwritersday@gmail.com](mailto:confluxwritersday@gmail.com).
 
-{Image=Conflux-writers_blk.jpg,Description=Conflux Writers Day logo,Alignment=Center}
+{Image=conflux-writers-black.jpg,Description=Conflux Writers Day logo,Alignment=Center}

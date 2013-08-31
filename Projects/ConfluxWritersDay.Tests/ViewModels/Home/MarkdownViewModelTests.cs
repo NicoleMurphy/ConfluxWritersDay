@@ -48,6 +48,21 @@ namespace ConfluxWritersDay.Tests.ViewModels.Home
                 viewModel.Html.Should().Be("<p>para 1</p>\n\n<p>para 2</p>\n");
             }
 
+            [TestMethod]
+            public void ShouldReturnHtmlWithProcessedImageTags()
+            {
+                // Given
+                var markdown = TrimMarkdown(@"{Image=universityhouse.jpg,Description=The internal courtyard at the venue University House also offering accommodation,Alignment=Left} para 1
+
+                    para 2");
+
+                // When
+                var viewModel = new MarkdownViewModel(markdown);
+
+                // Then
+                viewModel.Html.Should().Be("<p><img src=\"/Content/Images/universityhouse.jpg\" alt=\"The internal courtyard at the venue University House also offering accommodation\" class=\"image-left\" /> para 1</p>\n\n<p>para 2</p>\n");
+            }
+
             private string TrimMarkdown(string markdown)
             {
                 return string.Join(Environment.NewLine, markdown.ToLines(trimLines:true));
