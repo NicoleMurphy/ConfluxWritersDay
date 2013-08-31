@@ -47,7 +47,7 @@ namespace ConfluxWritersDay.Web.ViewModels.Home
                 var imageParts = imageTag.Split(',');
                 var src = imageParts[0].TextAfter("=");
                 var alt = imageParts[1].TextAfter("=");
-                var css = imageParts[2].TextAfter("=").ToLower();
+                var css = this.GetCss(imageParts);
 
                 var img = string.Format("<img src=\"/Content/Images/{0}\" alt=\"{1}\" class=\"image-{2}\" />", src, alt, css);
                 var before = text.Substring(0, indexOfStartImageTag);
@@ -59,6 +59,16 @@ namespace ConfluxWritersDay.Web.ViewModels.Home
             }
 
             return text;
+        }
+
+        private string GetCss(string[] imageParts)
+        {
+            if (imageParts.Length == 2)
+            {
+                return "noalignment";
+            }
+
+            return imageParts[2].TextAfter("=").ToLower();
         }
     }
 }
