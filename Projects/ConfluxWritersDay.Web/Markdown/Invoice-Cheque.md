@@ -7,8 +7,8 @@ PO Box 903, <br />
 Belconnen ACT 2616
 
 Date: {Date}
-To: {Firstname} {Lastname}
-Email: {Emailaddress}
+To: {FirstName} {LastName}
+Email: {EmailAddress}
 
 For: Registration for Conflux Writers Day, Saturday April 5 2014
 
