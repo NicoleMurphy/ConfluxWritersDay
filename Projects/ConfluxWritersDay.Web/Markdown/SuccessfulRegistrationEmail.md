@@ -18,8 +18,8 @@ Kind Regards
 ## Registration Itinerary
 
 {FirstName} {LastName}<br />
-{AddressLineOne}<br />
-{AddressLineTwo}<br />
+{AddressLine1}<br />
+{AddressLine1}<br />
 {City} {State} {Postcode}
 
 Registration type: {RegistrationType}
