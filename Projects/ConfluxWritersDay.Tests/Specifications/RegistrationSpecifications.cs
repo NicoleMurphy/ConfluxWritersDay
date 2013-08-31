@@ -33,7 +33,8 @@ namespace ConfluxWritersDay.Tests.Specifications
             s["And my postcode is '666'"] = p => this.ViewModel.Postcode = p[0];
             s["And my phone is '(02) 6232 2304'"] = p => this.ViewModel.Postcode = p[0];
             s["And my email address is 'tim@example.com'"] = p => this.ViewModel.EmailAddress = p[0];
-            s["And entered special dietary requirements 'Meat'"] = p => this.ViewModel.DietaryRequirements = p[0];
+            s["And entered dietary requirements 'Meat'"] = p => this.ViewModel.DietaryRequirements = p[0];
+            s["And entered special requirements 'Meat'"] = p => this.ViewModel.SpecialRequirements = p[0];
             s["And selected payment method of 'Cheque'"] = p => this.ViewModel.PaymentMethod = p[0];
             s["And selected membership organisation of 'Conflux 9'"] = p => this.ViewModel.MembershipOrganisation = p[0];
             s["When I submit my registration"] = p => this.ClickSubmitButton();

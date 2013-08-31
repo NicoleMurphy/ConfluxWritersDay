@@ -2,9 +2,9 @@
 
 namespace ConfluxWritersDay.Web.Models
 {
-    public class MembershipOrganisation : ValidationAttribute
+    public class MembershipOrganisationAttribute : ValidationAttribute
     {
-        public MembershipOrganisation()
+        public MembershipOrganisationAttribute()
         {
             throw new System.NotImplementedException();
         }

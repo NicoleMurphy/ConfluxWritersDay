@@ -149,6 +149,7 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="DataAnnotations\MembershipOrganisationAttribute.cs" />
     <Compile Include="DataAnnotations\PaymentMethodAttribute.cs" />
+    <Compile Include="Infrastructure\IoC.cs" />
     <Compile Include="Models\Registration.cs" />
     <Compile Include="Modules\BaseModule.cs" />
     <Compile Include="Modules\HomeModule.cs" />

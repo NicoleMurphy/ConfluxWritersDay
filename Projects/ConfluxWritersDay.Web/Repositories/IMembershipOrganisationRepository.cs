@@ -2,7 +2,7 @@
 
 namespace ConfluxWritersDay.Web.Repositories
 {
-    interface IMembershipOrganisationRepository
+    public interface IMembershipOrganisationRepository
     {
         IEnumerable<KeyValuePair<string, string>> GetAll();
     }

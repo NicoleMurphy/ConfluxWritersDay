@@ -8,7 +8,7 @@ namespace ConfluxWritersDay.Web
         protected override void ConfigureConventions(NancyConventions conventions)
         {
             base.ConfigureConventions(conventions);
-
+                        
             conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("Scripts"));
         }
     }

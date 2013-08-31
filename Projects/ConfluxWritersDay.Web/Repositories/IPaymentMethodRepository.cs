@@ -2,7 +2,7 @@
 
 namespace ConfluxWritersDay.Web.Repositories
 {
-    interface IPaymentMethodRepository
+    public interface IPaymentMethodRepository
     {
         IEnumerable<KeyValuePair<string, string>> GetAll();
     }
