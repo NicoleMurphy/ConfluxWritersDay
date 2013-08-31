@@ -1,4 +1,7 @@
 ﻿using BddMagic;
+using ConfluxWritersDay.Tests.Seleno;
+using ConfluxWritersDay.Tests.Seleno.PageObjects;
+using ConfluxWritersDay.Web.ViewModels.Home;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TestMagic;
@@ -8,6 +11,9 @@ namespace ConfluxWritersDay.Tests.Specifications
     [TestClass]
     public class RegistrationSpecifications : BddFeature
     {
+        private RegistrationPage RegistrationPage;
+        private RegistrationViewModel ViewModel = new RegistrationViewModel();
+
         public RegistrationSpecifications()
             : base("Registration Page", "todo: story")
         {
@@ -18,16 +24,19 @@ namespace ConfluxWritersDay.Tests.Specifications
         {
             var s = this.Scenario("Registration Details");
 
-            s["Given I am on the registration page"] = null;
-            s["And my first name is entered"] = null;
-            s["And my last name is entered"] = null;
-            s["And my address is entered"] = null;
-            s["And my phone is entered"] = null;
-            s["And my email address is entered"] = null;
-            s["And entered special dietary requirements"] = null;
-            s["And selected payment method of Cheque, PayPal or Direct Deposit"] = null;
-            s["And selected a member organisation of Conflux 9 Member, CSFG Member, ACT Writers Centre Member or Non-Member"] = null;
-            s["When I submit my registration"] = null;
+            s["Given I am on the registration page"] = p => this.NavigateToRegistrationPage();
+            s["And my first name is 'Tim'"] = p => this.ViewModel.FirstName = p[0];
+            s["And my last name is 'Murphy'"] = p => this.ViewModel.LastName = p[0];
+            s["And my address line 1 is '32 Black Street'"] = p => this.ViewModel.AddressLine1 = p[0];
+            s["And my suburb is 'Under'"] = p => this.ViewModel.Suburb = p[0];
+            s["And my state is 'Belly'"] = p => this.ViewModel.State = p[0];
+            s["And my postcode is '666'"] = p => this.ViewModel.Postcode = p[0];
+            s["And my phone is '(02) 6232 2304'"] = p => this.ViewModel.Postcode = p[0];
+            s["And my email address is 'tim@example.com'"] = p => this.ViewModel.EmailAddress = p[0];
+            s["And entered special dietary requirements 'Meat'"] = p => this.ViewModel.DietaryRequirements = p[0];
+            s["And selected payment method of 'Cheque'"] = p => this.ViewModel.PaymentMethod = p[0];
+            s["And selected membership organisation of 'Conflux 9'"] = p => this.ViewModel.MembershipOrganisation = p[0];
+            s["When I submit my registration"] = p => this.ClickSubmitButton();
             s["Then I will see thank you page"] = null;
             s["And I will receive an email"] = null;
 
@@ -89,7 +98,7 @@ namespace ConfluxWritersDay.Tests.Specifications
         public void NoMembershipOrganisation()
         {
             var s = this.Scenario("Member organisation");
-            
+
             s["Given I am on the registration page"] = null;
             s["When I am not a member"] = null;
             s["Then the price is '$150.00'"] = null;
@@ -101,7 +110,7 @@ namespace ConfluxWritersDay.Tests.Specifications
         public void First30Registrations()
         {
             var s = this.Scenario("First 30 registration");
-            
+
             s["Given I am on the registration page"] = null;
             s["When I am one of the first 30 registrations"] = null;
             s["Then the price is '$90.00'"] = null;
@@ -113,7 +122,7 @@ namespace ConfluxWritersDay.Tests.Specifications
         public void _31PlusRegistration()
         {
             var s = this.Scenario("31+ registration");
-            
+
             s["Given I am on the registration page"] = null;
             s["And I was 30th to start registration"] = null;
             s["And someone else typed quicker than me"] = null;
@@ -127,7 +136,7 @@ namespace ConfluxWritersDay.Tests.Specifications
         public void PaymentByDirectDeposit()
         {
             var s = this.Scenario("direct deposit");
-            
+
             s["Given I have completed registration "] = null;
             s["And the payment method is direct deposit payment"] = null;
             s["When I am sent an email"] = null;
@@ -160,6 +169,16 @@ namespace ConfluxWritersDay.Tests.Specifications
             s["Then I the cheque invoice is attached"] = null;
 
             s.Execute();
+        }
+
+        private void NavigateToRegistrationPage()
+        {
+            this.RegistrationPage = Host.Instance.NavigateToInitialPage<RegistrationPage>();
+        }
+
+        private void ClickSubmitButton()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
