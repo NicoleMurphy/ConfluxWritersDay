@@ -75,7 +75,7 @@
     <Content Include="Specifications\Venue.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="Packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ConfluxWritersDay.Web\ConfluxWritersDay.Web.csproj">
