@@ -17,9 +17,9 @@ GST exclusive
 
 Direct Deposit to:
 
-National Australia Bank
-Acc Name - Conflux Incorporated
-BSB - 083 004
+National Australia Bank <br />
+Acc Name - Conflux Incorporated <br />
+BSB - 083 004 <br />
 Acc No - 79147 4332
 
 Reference - {LastName}CWD
