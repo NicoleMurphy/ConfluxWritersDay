@@ -1,4 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using System.IO;
+using ConfluxWritersDay.Web.ViewModels.Home;
+using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenMagic.Extensions;
+using TestMagic;
 
 namespace ConfluxWritersDay.Tests.ViewModels.Home
 {
@@ -10,23 +16,17 @@ namespace ConfluxWritersDay.Tests.ViewModels.Home
             [TestMethod]
             public void ShouldThrowArgumentNullExceptionWhenMarkdownIsNull()
             {
-                // Given
-                
-                // When
-
-                // Then
-                Assert.Inconclusive("todo");
+                GWT.Given("testing constructor")
+                    .When(c => new MarkdownViewModel(markdown: null))
+                    .Then<ArgumentNullException>().ShouldBeThrown().ForParameter("markdown");
             }
 
             [TestMethod]
             public void ShouldThrowArgumentExceptionWhenMarkdownIsWhitespace()
             {
-                // Given
-
-                // When
-
-                // Then
-                Assert.Inconclusive("todo");
+                GWT.Given("testing constructor")
+                    .When(c => new MarkdownViewModel(markdown: ""))
+                    .Then<ArgumentException>().ShouldBeThrown().ForParameter("markdown");
             }
         }
 
@@ -37,11 +37,20 @@ namespace ConfluxWritersDay.Tests.ViewModels.Home
             public void ShouldReturnMarkdownPassedToConstructorAsHtml()
             {
                 // Given
+                var markdown = TrimMarkdown(@"para 1
+                                
+                                para 2");
 
                 // When
+                var viewModel = new MarkdownViewModel(markdown);
 
                 // Then
-                Assert.Inconclusive("todo");
+                viewModel.Html.Should().Be("<p>para 1</p>\n\n<p>para 2</p>\n");
+            }
+
+            private string TrimMarkdown(string markdown)
+            {
+                return string.Join(Environment.NewLine, markdown.ToLines(trimLines:true));
             }
         }
     }
