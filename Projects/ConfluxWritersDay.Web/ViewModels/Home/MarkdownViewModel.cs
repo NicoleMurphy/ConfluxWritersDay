@@ -1,6 +1,6 @@
 ﻿using System;
-using OpenMagic;
 using MarkdownSharp;
+using OpenMagic;
 
 namespace ConfluxWritersDay.Web.ViewModels.Home
 {
@@ -10,11 +10,6 @@ namespace ConfluxWritersDay.Web.ViewModels.Home
 
         public MarkdownViewModel(string markdown)
         {
-            if (1 == 1)
-            {
-                throw new System.NotImplementedException();
-            }
-
             markdown.MustNotBeNullOrWhiteSpace("markdown");
 
             _Html = new Lazy<string>(() => ToHtml(markdown));

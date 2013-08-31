@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\MarkdownRepositoryTests.cs" />
+    <Compile Include="ViewModels\Home\MarkdownViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Specifications\Participate.txt" />
