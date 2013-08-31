@@ -11,11 +11,6 @@ namespace ConfluxWritersDay.Web.Repositories
 
         public MarkdownRepository(string folder)
         {
-            if (1 == 1)
-            {
-                throw new System.NotImplementedException();
-            }
-
             folder.MustNotBeNullOrWhiteSpace("folder");
 
             if (!Directory.Exists(folder))
