@@ -43,6 +43,12 @@
     <Reference Include="Common.Logging">
       <HintPath>..\..\packages\Common.Logging.2.1.2\lib\net40\Common.Logging.dll</HintPath>
     </Reference>
+    <Reference Include="DataAnnotationsExtensions">
+      <HintPath>..\..\packages\DataAnnotationsExtensions.1.1.0.0\lib\NETFramework40\DataAnnotationsExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DataAnnotationsExtensions.ClientValidation">
+      <HintPath>..\..\packages\DataAnnotationsExtensions.MVC3.1.1.0.0\lib\NETFramework40\DataAnnotationsExtensions.ClientValidation.dll</HintPath>
+    </Reference>
     <Reference Include="MarkdownSharp">
       <HintPath>..\..\packages\MarkdownSharp.1.13.0.0\lib\35\MarkdownSharp.dll</HintPath>
     </Reference>
@@ -74,6 +80,9 @@
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
+    <Reference Include="WebActivator">
+      <HintPath>..\..\packages\WebActivator.1.2.0.0\lib\NETFramework40\WebActivator.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\bonechime.jpg" />
@@ -139,12 +148,21 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\RegisterClientValidationExtensions.cs" />
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="DataAnnotations\MembershipOrganisationAttribute.cs" />
+    <Compile Include="DataAnnotations\PaymentMethodAttribute.cs" />
+    <Compile Include="Models\Registration.cs" />
     <Compile Include="Modules\BaseModule.cs" />
     <Compile Include="Modules\HomeModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IMembershipOrganisationRepository.cs" />
+    <Compile Include="Repositories\IPaymentMethodRepository.cs" />
+    <Compile Include="Repositories\MembershipOrganisationRepository.cs" />
     <Compile Include="Repositories\IMarkdownRepository.cs" />
+    <Compile Include="Repositories\IRegistrationRepository.cs" />
     <Compile Include="Repositories\MarkdownRepository.cs" />
+    <Compile Include="Repositories\PaymentMethodRepository.cs" />
     <Compile Include="ViewModels\Home\MarkdownViewModel.cs" />
     <Compile Include="ViewModels\Home\RegistrationViewModel.cs" />
   </ItemGroup>
