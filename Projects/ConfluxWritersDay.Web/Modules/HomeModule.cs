@@ -23,19 +23,19 @@ namespace ConfluxWritersDay.Web.Modules
 
             // todo: do I really need / and /{page}?
             Get["/"] = parameters =>
-            {
-                return PageView(markdownRepository.GetMarkdown("home"));
-            };
+                {
+                    return PageView(markdownRepository.GetMarkdown("home"));
+                };
 
             Get["/registration"] = parameters =>
-            {
-                return View["registration.cshtml", new RegistrationViewModel(membershipOrganisationRepository, paymentMethodRepository)];
-            };
+                {
+                    return View["registration.cshtml", new RegistrationViewModel(membershipOrganisationRepository, paymentMethodRepository)];
+                };
 
             Get["/{page}", ctx => markdownRepository.MarkdownExists(ctx.Request.Path)] = parameters =>
-            {
-                return PageView(markdownRepository.GetMarkdown(parameters.page));
-            };
+                {
+                    return PageView(markdownRepository.GetMarkdown(parameters.page));
+                };
         }
 
         private Negotiator PageView(string markdown)
