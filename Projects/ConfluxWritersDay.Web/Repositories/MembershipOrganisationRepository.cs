@@ -14,7 +14,6 @@ namespace ConfluxWritersDay.Web.Repositories
 
         public MembershipOrganisationRepository()
         {
-            throw new System.NotImplementedException();
         }
 
         public IEnumerable<KeyValuePair<string, string>> GetAll()

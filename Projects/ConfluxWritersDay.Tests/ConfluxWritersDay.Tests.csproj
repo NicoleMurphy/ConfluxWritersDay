@@ -84,6 +84,8 @@
   <ItemGroup>
     <Compile Include="Assembly.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="Repositories\PaymentMethodRepositoryTests.cs" />
+    <Compile Include="Repositories\MembershipOrganisationRepositoryTests.cs" />
     <Compile Include="Seleno\Host.cs" />
     <Compile Include="Seleno\PageObjects\RegistrationPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

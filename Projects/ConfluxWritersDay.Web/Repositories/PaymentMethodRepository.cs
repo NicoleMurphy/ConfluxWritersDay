@@ -13,7 +13,6 @@ namespace ConfluxWritersDay.Web.Repositories
 
         public PaymentMethodRepository()
         {
-            throw new System.NotImplementedException();
         }
 
         public IEnumerable<KeyValuePair<string, string>> GetAll()
