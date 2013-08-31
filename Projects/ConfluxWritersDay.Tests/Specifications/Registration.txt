@@ -46,18 +46,18 @@ Then I am told I missed out
 
 Scenario: direct deposit
 Given I have completed registration 
-And the payment method is credit payment
+And the payment method is direct deposit payment
 When I am sent an email
 Then I the direct deposit invoice is attached
 
 Scenario: paypal
 Given I have completed registration 
-And the payment method is credit payment
+And the payment method is Paypal payment
 When I am sent an email
 Then I the paypal invoice is attached
 
 Scenario: cheque
 Given I have completed registration 
-And the payment method is credit payment
+And the payment method is cheque payment
 When I am sent an email
 Then I the cheque invoice is attached
