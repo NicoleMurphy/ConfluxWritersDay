@@ -71,7 +71,6 @@
     <Content Include="Specifications\Pricing.txt" />
     <Content Include="Specifications\Program.txt" />
     <Content Include="Specifications\Registration.txt" />
-    <Content Include="Specifications\StoryTemplate.txt" />
     <Content Include="Specifications\Venue.txt" />
   </ItemGroup>
   <ItemGroup>
