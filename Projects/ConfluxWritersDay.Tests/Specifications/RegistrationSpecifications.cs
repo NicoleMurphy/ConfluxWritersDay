@@ -1,10 +1,8 @@
 ﻿using BddMagic;
+using ConfluxWritersDay.Tests.Fakes.ViewModels.Home;
 using ConfluxWritersDay.Tests.Seleno;
 using ConfluxWritersDay.Tests.Seleno.PageObjects;
-using ConfluxWritersDay.Web.ViewModels.Home;
-using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TestMagic;
 
 namespace ConfluxWritersDay.Tests.Specifications
 {
@@ -12,7 +10,7 @@ namespace ConfluxWritersDay.Tests.Specifications
     public class RegistrationSpecifications : BddFeature
     {
         private RegistrationPage Page;
-        private RegistrationViewModel ViewModel = new RegistrationViewModel();
+        private FakeRegistrationViewModel ViewModel = new FakeRegistrationViewModel();
 
         public RegistrationSpecifications()
             : base("Registration Page", "todo: story")

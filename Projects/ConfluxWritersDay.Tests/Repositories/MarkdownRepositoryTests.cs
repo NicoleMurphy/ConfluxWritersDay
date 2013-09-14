@@ -8,17 +8,6 @@ namespace ConfluxWritersDay.Tests.Repositories
         public class Constructor
         {
             [TestMethod]
-            public void ShouldThrowArgumentNullExceptionWhenFolderIsNull()
-            {
-                // Given
-
-                // When
-
-                // Then
-                Assert.Inconclusive("todo");
-            }
-
-            [TestMethod]
             public void ShouldThrowArgumentExceptionWhenFolderWhitespace()
             {
                 // Given
@@ -44,17 +33,6 @@ namespace ConfluxWritersDay.Tests.Repositories
         [TestClass]
         public class GetMarkdown
         {
-            [TestMethod]
-            public void ShouldThrowArgumentNullExceptionWhenNameIsNull()
-            {
-                // Given
-
-                // When
-
-                // Then
-                Assert.Inconclusive("todo");
-            }
-
             [TestMethod]
             public void ShouldThrowArgumentExceptionWhenNameIsWhitespace()
             {
@@ -92,17 +70,6 @@ namespace ConfluxWritersDay.Tests.Repositories
         [TestClass]
         public class MarkdownExists
         {
-            [TestMethod]
-            public void ShouldThrowArgumentNullExceptionWhenNameIsNull()
-            {
-                // Given
-
-                // When
-
-                // Then
-                Assert.Inconclusive("todo");
-            }
-
             [TestMethod]
             public void ShouldThrowArgumentExceptionWhenNameIsWhitespace()
             {

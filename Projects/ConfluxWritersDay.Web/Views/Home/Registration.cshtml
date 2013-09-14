@@ -1,74 +1,78 @@
-﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<dynamic>
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<ConfluxWritersDay.Web.ViewModels.Home.RegistrationViewModel>
               
 @{
     Layout = "Shared/PageLayout.cshtml";
 }
 
-<form class="form-horizontal">
+<form action="/registration" method="post" class="form-horizontal">
 
     <fieldset>
 
         <legend>Registration</legend>
-    
+
+        @*@ConfluxWritersDay.Web.Infrastructure.HtmlHelpersExtensions.TextBoxGroupFor(this.Html, null)*@
+
+        @Html.TextBoxGroupFor(r => r.FirstName)
+
         <div class="control-group">
             <label class="control-label">First Name</label>
             <div class="controls">
-                <input id="FirstName" name="FirstName" type="text" placeholder="First Name" class="input-xlarge">
+                <input id="FirstName" name="FirstName" type="text" placeholder="First Name" class="input-xlarge" value="@Model.FirstName">
             </div>
         </div>
     
         <div class="control-group">
             <label class="control-label">Last Name</label>
             <div class="controls">
-                <input id="LastName" name="LastName" type="text" placeholder="Last Name" class="input-xlarge">
+                <input id="LastName" name="LastName" type="text" placeholder="Last Name" class="input-xlarge" value="@Model.LastName">
             </div>
         </div>
 
         <div class="control-group">
             <label class="control-label">Address</label>
             <div class="controls">
-                <input id="AddressLine1" name="AddressLine1" type="text" placeholder="Address Line 1" class="input-xlarge">
+                <input id="AddressLine1" name="AddressLine1" type="text" placeholder="Address Line 1" class="input-xlarge" value="@Model.AddressLine1">
             </div>
         </div>
     
         <div class="control-group">
             <div class="controls">
-                <input id="AddressLine2" name="AddressLine2" type="text" placeholder="Address Line 2" class="input-xlarge">
+                <input id="AddressLine2" name="AddressLine2" type="text" placeholder="Address Line 2" class="input-xlarge" value="@Model.AddressLine2">
             </div>
         </div>
     
         <div class="control-group">
             <label class="control-label">Suburb</label>
             <div class="controls">
-                <input id="Suburb" name="Suburb" type="text" placeholder="City" class="input-xlarge">
+                <input id="Suburb" name="Suburb" type="text" placeholder="City" class="input-xlarge" value="@Model.Suburb">
             </div>
         </div>
     
         <div class="control-group">
             <label class="control-label">State</label>
             <div class="controls">
-                <input id="State" name="State" type="text" placeholder="State" class="input-xlarge">
+                <input id="State" name="State" type="text" placeholder="State" class="input-xlarge" value="@Model.State">
             </div>
         </div>
     
         <div class="control-group">
             <label class="control-label">Postcode</label>
             <div class="controls">
-                <input id="Postcode" name="Postcode" type="text" placeholder="Postcode" class="input-xlarge">
+                <input id="Postcode" name="Postcode" type="text" placeholder="Postcode" class="input-xlarge" value="@Model.Postcode">
             </div>
         </div>
     
         <div class="control-group">
             <label class="control-label">Email address</label>
             <div class="controls">
-                <input id="EmailAddress" name="EmailAddress" type="text" placeholder="example@example.org" class="input-xlarge">
+                <input id="EmailAddress" name="EmailAddress" type="text" placeholder="example@example.org" class="input-xlarge" value="@Model.EmailAddress">
             </div>
         </div>
 
         <div class="control-group">
             <label class="control-label">Telephone number</label>
             <div class="controls">
-                <input id="TelephoneNumber" name="TelephoneNumber" type="text" placeholder="(99) 9999 9999" class="input-xlarge">
+                <input id="TelephoneNumber" name="TelephoneNumber" type="text" placeholder="(99) 9999 9999" class="input-xlarge" value="@Model.TelephoneNumber">
             </div>
         </div>
 
@@ -122,4 +126,3 @@
     </fieldset>
 
 </form>
-

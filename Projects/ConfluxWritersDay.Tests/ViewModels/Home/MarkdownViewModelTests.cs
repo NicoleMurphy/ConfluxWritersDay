@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using ConfluxWritersDay.Web.ViewModels.Home;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -13,14 +12,6 @@ namespace ConfluxWritersDay.Tests.ViewModels.Home
         [TestClass]
         public class Constructor
         {
-            [TestMethod]
-            public void ShouldThrowArgumentNullExceptionWhenMarkdownIsNull()
-            {
-                GWT.Given("testing constructor")
-                    .When(c => new MarkdownViewModel(markdown: null))
-                    .Then<ArgumentNullException>().ShouldBeThrown().ForParameter("markdown");
-            }
-
             [TestMethod]
             public void ShouldThrowArgumentExceptionWhenMarkdownIsWhitespace()
             {

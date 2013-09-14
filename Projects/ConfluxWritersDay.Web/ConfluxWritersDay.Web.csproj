@@ -21,6 +21,7 @@
     <IISExpressUseClassicPipelineMode />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <FodyPath>..\..\packages\Fody.1.17.4.0</FodyPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -53,17 +54,29 @@
       <HintPath>..\..\packages\MarkdownSharp.1.13.0.0\lib\35\MarkdownSharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Nancy">
-      <HintPath>..\..\packages\Nancy.0.18.0\lib\net40\Nancy.dll</HintPath>
+    <Reference Include="Nancy, Version=0.20.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Nancy.0.20.0\lib\net40\Nancy.dll</HintPath>
     </Reference>
-    <Reference Include="Nancy.Hosting.Aspnet">
-      <HintPath>..\..\packages\Nancy.Hosting.Aspnet.0.18.0\lib\net40\Nancy.Hosting.Aspnet.dll</HintPath>
+    <Reference Include="Nancy.Hosting.Aspnet, Version=0.20.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Nancy.Hosting.Aspnet.0.20.0\lib\net40\Nancy.Hosting.Aspnet.dll</HintPath>
     </Reference>
-    <Reference Include="Nancy.ViewEngines.Razor">
-      <HintPath>..\..\packages\Nancy.Viewengines.Razor.0.18.0\lib\net40\Nancy.ViewEngines.Razor.dll</HintPath>
+    <Reference Include="Nancy.Validation.DataAnnotations, Version=0.20.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Nancy.Validation.DataAnnotations.0.20.0\lib\net40\Nancy.Validation.DataAnnotations.dll</HintPath>
     </Reference>
-    <Reference Include="OpenMagic">
-      <HintPath>..\..\packages\OpenMagic.0.1.19.0\lib\net40\OpenMagic.dll</HintPath>
+    <Reference Include="Nancy.ViewEngines.Razor, Version=0.20.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Nancy.Viewengines.Razor.0.20.0\lib\net40\Nancy.ViewEngines.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="NullGuard">
+      <HintPath>..\..\packages\NullGuard.Fody.0.7.1\Lib\portable-net4+sl4+wp7+win8+MonoAndroid16+MonoTouch40\NullGuard.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OpenMagic, Version=0.1.27.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\OpenMagic.0.1.27.0\lib\net40\OpenMagic.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -106,6 +119,7 @@
     <Content Include="Content\Images\universityhouse.jpg" />
     <Content Include="Content\Images\walkingthetree.jpg" />
     <Content Include="Content\Images\WOTF24awards.jpg" />
+    <Content Include="FodyWeavers.xml" />
     <Content Include="Markdown\Contact.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -149,7 +163,9 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="DataAnnotations\MembershipOrganisationAttribute.cs" />
     <Compile Include="DataAnnotations\PaymentMethodAttribute.cs" />
+    <Compile Include="NancyMagic\HtmlHelpersExtensions.cs" />
     <Compile Include="Infrastructure\IoC.cs" />
+    <Compile Include="NancyMagic\StringExtensions.cs" />
     <Compile Include="Models\Registration.cs" />
     <Compile Include="Modules\BaseModule.cs" />
     <Compile Include="Modules\HomeModule.cs" />
@@ -188,6 +204,8 @@
     <Content Include="Markdown\Invoice-DirectDeposit.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Fody.targets" />
+    <None Include="NancyMagic\README.md" />
     <None Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Registration.cshtml" />
     <None Include="Web.Debug.config">
@@ -226,11 +244,12 @@
   <PropertyGroup>
     <PostBuildEvent>
 if $(ConfigurationName) == Debug (
-xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.18.0\BuildProviders\Nancy.ViewEngines.Razor.BuildProviders.dll" "$(ProjectDir)bin\"
-xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.18.0\lib\Net40\Nancy.ViewEngines.Razor.dll" "$(ProjectDir)bin\"
+xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.20.0\BuildProviders\Nancy.ViewEngines.Razor.BuildProviders.dll" "$(ProjectDir)bin\"
+xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.20.0\lib\Net40\Nancy.ViewEngines.Razor.dll" "$(ProjectDir)bin\"
 )</PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Import Project="Fody.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -4,24 +4,13 @@ using System.Linq;
 using ConfluxWritersDay.Web.Models;
 using ConfluxWritersDay.Web.Repositories;
 using DataAnnotationsExtensions;
-using OpenMagic;
-using Nancy.TinyIoc;
-using ConfluxWritersDay.Web.Infrastructure;
 
 namespace ConfluxWritersDay.Web.ViewModels.Home
 {
     public class RegistrationViewModel
     {
-        public RegistrationViewModel()
-            : this(IoC.Resolve<IMembershipOrganisationRepository>(), IoC.Resolve<IPaymentMethodRepository>())
-        {
-        }
-
         public RegistrationViewModel(IMembershipOrganisationRepository membershipOrganisations, IPaymentMethodRepository paymentMethods)
         {
-            membershipOrganisations.MustNotBeNull("membershipOrganisations");
-            paymentMethods.MustNotBeNull("paymentMethods");
-
             this.MembershipOrganisations = membershipOrganisations.GetAll().ToArray();
             this.PaymentMethods = paymentMethods.GetAll().ToArray();
         }

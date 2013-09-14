@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using OpenMagic;
-using System.Text;
 
 namespace ConfluxWritersDay.Web.Repositories
 {
