@@ -10,9 +10,9 @@
 
         <legend>Registration</legend>
 
-        @*@ConfluxWritersDay.Web.Infrastructure.HtmlHelpersExtensions.TextBoxGroupFor(this.Html, null)*@
+        @* todo: web.config for extension methods to work *@
 
-        @Html.TextBoxGroupFor(r => r.FirstName)
+        @NancyMagic.HtmlHelpersExtensions.TextBoxGroupFor(this.Html, r => r.FirstName)
 
         <div class="control-group">
             <label class="control-label">First Name</label>

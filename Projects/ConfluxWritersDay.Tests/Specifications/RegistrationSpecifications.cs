@@ -20,6 +20,8 @@ namespace ConfluxWritersDay.Tests.Specifications
         [TestMethod]
         public void RegistrationDetails()
         {
+            Assert.Inconclusive("todo");
+
             var s = this.Scenario("Registration Details");
 
             s["Given I am on the registration page"] = p => this.NavigateToRegistrationPage();
@@ -45,6 +47,8 @@ namespace ConfluxWritersDay.Tests.Specifications
         [TestMethod]
         public void FirstNameIsRequired()
         {
+            Assert.Inconclusive("todo");
+
             var s = this.Scenario("First name is required");
 
             s["Given I am on the registration page"] = null;
@@ -58,6 +62,8 @@ namespace ConfluxWritersDay.Tests.Specifications
         [TestMethod]
         public void LastNameIsRequired()
         {
+            Assert.Inconclusive("todo");
+
             var s = this.Scenario("Last name is required");
 
             s["Given I am on the registration page"] = null;
@@ -71,6 +77,8 @@ namespace ConfluxWritersDay.Tests.Specifications
         [TestMethod]
         public void EmailAddressIsRequired()
         {
+            Assert.Inconclusive("todo");
+
             var s = this.Scenario("Email address is required");
 
             s["Given I am on the registration page"] = null;
@@ -84,6 +92,8 @@ namespace ConfluxWritersDay.Tests.Specifications
         [TestMethod]
         public void MembershipOrganisation()
         {
+            Assert.Inconclusive("todo");
+
             var s = this.Scenario("Membership organisation");
 
             s["Given I am on the registration page"] = null;
@@ -96,6 +106,8 @@ namespace ConfluxWritersDay.Tests.Specifications
         [TestMethod]
         public void NoMembershipOrganisation()
         {
+            Assert.Inconclusive("todo");
+
             var s = this.Scenario("Member organisation");
 
             s["Given I am on the registration page"] = null;
@@ -108,6 +120,8 @@ namespace ConfluxWritersDay.Tests.Specifications
         [TestMethod]
         public void First30Registrations()
         {
+            Assert.Inconclusive("todo");
+
             var s = this.Scenario("First 30 registration");
 
             s["Given I am on the registration page"] = null;
@@ -118,8 +132,10 @@ namespace ConfluxWritersDay.Tests.Specifications
         }
 
         [TestMethod]
-        public void _31PlusRegistration()
+        public void ThirtyFirstOrGreaterRegistration()
         {
+            Assert.Inconclusive("todo");
+
             var s = this.Scenario("31+ registration");
 
             s["Given I am on the registration page"] = null;
@@ -134,6 +150,8 @@ namespace ConfluxWritersDay.Tests.Specifications
         [TestMethod]
         public void PaymentByDirectDeposit()
         {
+            Assert.Inconclusive("todo");
+
             var s = this.Scenario("direct deposit");
 
             s["Given I have completed registration "] = null;
@@ -147,6 +165,8 @@ namespace ConfluxWritersDay.Tests.Specifications
         [TestMethod]
         public void PaymentByPayPal()
         {
+            Assert.Inconclusive("todo");
+
             var s = this.Scenario("paypal");
 
             s["Given I have completed registration "] = null;
@@ -160,6 +180,8 @@ namespace ConfluxWritersDay.Tests.Specifications
         [TestMethod]
         public void PaymentByCheque()
         {
+            Assert.Inconclusive("todo");
+
             var s = this.Scenario("cheque");
 
             s["Given I have completed registration "] = null;
