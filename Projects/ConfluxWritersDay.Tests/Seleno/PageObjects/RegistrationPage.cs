@@ -11,13 +11,13 @@ namespace ConfluxWritersDay.Tests.Seleno.PageObjects
 
         public void Submit(FakeRegistrationViewModel viewModel)
         {
-            this.Input().Model(viewModel);
+            this.Input.Model(viewModel);
             this.SubmitButton().Click();
         }
 
         private IWebElement SubmitButton()
         {
-            var button = this.Find().Element(By.Id("Submit"));
+            var button = this.Find.Element(By.Id("Submit"));
             
             return button;
         }
