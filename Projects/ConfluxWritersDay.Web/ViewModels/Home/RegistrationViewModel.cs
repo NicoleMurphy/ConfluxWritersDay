@@ -4,9 +4,11 @@ using System.Linq;
 using ConfluxWritersDay.Web.Models;
 using ConfluxWritersDay.Web.Repositories;
 using DataAnnotationsExtensions;
+using NullGuard;
 
 namespace ConfluxWritersDay.Web.ViewModels.Home
 {
+    [NullGuard(ValidationFlags.Methods | ValidationFlags.Arguments | ValidationFlags.OutValues | ValidationFlags.ReturnValues)]
     public class RegistrationViewModel
     {
         public RegistrationViewModel(IMembershipOrganisationRepository membershipOrganisations, IPaymentMethodRepository paymentMethods)
