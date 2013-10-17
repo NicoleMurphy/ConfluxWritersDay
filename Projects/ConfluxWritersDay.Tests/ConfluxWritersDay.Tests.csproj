@@ -35,9 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BddMagic, Version=0.1.13.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="BddMagic, Version=0.1.14.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\BddMagic.0.1.13.0\lib\net40\BddMagic.dll</HintPath>
+      <HintPath>..\..\packages\BddMagic.0.1.14.0\lib\net40\BddMagic.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Core, Version=3.2.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -62,9 +62,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Nancy.Viewengines.Razor.0.20.0\lib\net40\Nancy.ViewEngines.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="OpenMagic, Version=0.1.27.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="OpenMagic, Version=0.1.28.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\OpenMagic.0.1.27.0\lib\net40\OpenMagic.dll</HintPath>
+      <HintPath>..\..\packages\OpenMagic.0.1.28.0\lib\net40\OpenMagic.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -78,9 +78,9 @@
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="TestMagic, Version=0.1.6.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="TestMagic, Version=0.1.7.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\TestMagic.0.1.6\lib\TestMagic.dll</HintPath>
+      <HintPath>..\..\packages\TestMagic.0.1.7\lib\TestMagic.dll</HintPath>
     </Reference>
     <Reference Include="TestStack.Seleno, Version=0.6.0.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
