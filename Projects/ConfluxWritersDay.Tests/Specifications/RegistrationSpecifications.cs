@@ -8,6 +8,7 @@ using FluentAssertions;
 using Humanizer;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenMagic.DataAnnotations;
+using TestStack.Seleno.PageObjects.Locators;
 
 namespace ConfluxWritersDay.Tests.Specifications
 {
@@ -217,6 +218,16 @@ namespace ConfluxWritersDay.Tests.Specifications
             return name;
         }
 
+        private string GetHumanFieldName(IPropertyMetadata metadata)
+        {
+            return this.GetLabel(metadata).ToLower();
+        }
+
+        private string GetPropertyId(IPropertyMetadata metadata)
+        {
+            return metadata.PropertyInfo.Name;
+        }
+
         private void NavigateToRegistrationPage()
         {
             this.Page = Host.Instance.NavigateToInitialPage<RegistrationPage>(RegistrationPage.Url);
@@ -225,24 +236,46 @@ namespace ConfluxWritersDay.Tests.Specifications
         private void RequiredField(Expression<Func<RegistrationViewModel, object>> property)
         {
             var metadata = ClassMetadata<RegistrationViewModel>.GetProperty(property);
-            var humanFieldName = this.GetLabel(metadata).ToLower();
 
-            WhenFieldIsBlankAndSubmitButtonIsClicked(metadata, humanFieldName);
-
-            Assert.Inconclusive("todo: the opposite to this");
-            // todo: no JavaScript
+            this.WhenRequiredFieldIsBlankAndSubmitButtonIsClicked(metadata);
+            this.WhenRequiredFieldIsNotBlankAndSubmitButtonIsClicked(metadata);
+            this.WhenRequiredFieldIsBlankAndExited(metadata);
+            this.WhenRequiredFieldIsNotBlankAndExited(metadata);
+            this.WhenJavaScriptIsNotEnabledAndRequiredFieldIsBlankAndSubmitButtonIsClicked(metadata);
         }
 
-        private void WhenFieldIsBlankAndSubmitButtonIsClicked(IPropertyMetadata metadata, string humanFieldName)
+        private void WhenRequiredFieldIsBlankAndSubmitButtonIsClicked(IPropertyMetadata metadata)
         {
+            var propertyId = this.GetPropertyId(metadata);
+            var humanFieldName = this.GetHumanFieldName(metadata);
             var s = this.Scenario();
 
             s[string.Format("Given I am on the registration page")] = p => this.NavigateToRegistrationPage();
-            s[string.Format("And I have not entered my {0}", humanFieldName)] = p => metadata.PropertyInfo.SetValue(this.ViewModel, null, null);
+            s[string.Format("And I have not entered my {0}", humanFieldName)] = p => metadata.PropertyInfo.SetValue(this.ViewModel, "", null);
             s[string.Format("When I submit my registration")] = p => this.Page.Submit(this.ViewModel);
             s[string.Format("Then I will see validation message that {0} is required", humanFieldName)] = p => this.Page.firstNameRequiredValidationMessage.Displayed.Should().BeTrue();
 
             s.Execute();
+        }
+
+        private void WhenRequiredFieldIsNotBlankAndSubmitButtonIsClicked(IPropertyMetadata metadata)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void WhenRequiredFieldIsBlankAndExited(IPropertyMetadata metadata)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void WhenRequiredFieldIsNotBlankAndExited(IPropertyMetadata metadata)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void WhenJavaScriptIsNotEnabledAndRequiredFieldIsBlankAndSubmitButtonIsClicked(IPropertyMetadata metadata)
+        {
+            throw new NotImplementedException();
         }
     }
 }
