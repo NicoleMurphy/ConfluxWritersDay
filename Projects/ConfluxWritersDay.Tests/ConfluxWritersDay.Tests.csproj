@@ -102,17 +102,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assembly.cs" />
-    <Compile Include="Config.cs" />
-    <Compile Include="Fakes\ViewModels\Home\FakeRegistrationViewModel.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="NancyMagic\HtmlHelpersExtensionsTests.cs" />
     <Compile Include="NancyMagic\StringExtensionsTests.cs" />
     <Compile Include="Repositories\PaymentMethodRepositoryTests.cs" />
     <Compile Include="Repositories\MembershipOrganisationRepositoryTests.cs" />
-    <Compile Include="Seleno\Host.cs" />
-    <Compile Include="Seleno\PageObjects\RegistrationPage.cs" />
+    <Compile Include="TestInfrastructure\Seleno\Host.cs" />
+    <Compile Include="TestInfrastructure\Seleno\PageObjects\RegistrationPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\MarkdownRepositoryTests.cs" />
+    <Compile Include="Specifications\BaseBddFeature.cs" />
     <Compile Include="Specifications\RegistrationSpecifications.cs" />
+    <Compile Include="TestInfrastructure\Dummies\DummyRegistrationViewModel.cs" />
+    <Compile Include="TestInfrastructure\Dummies\DummyRegistrationViewModels.cs" />
     <Compile Include="ViewModels\Home\MarkdownViewModelTests.cs" />
     <Compile Include="ViewModels\Home\RegistrationViewModelTests.cs" />
   </ItemGroup>
@@ -123,6 +125,7 @@
     <Content Include="Specifications\Program.txt" />
     <Content Include="Specifications\Registration.txt" />
     <Content Include="Specifications\Venue.txt" />
+    <Content Include="TestInfrastructure\Dummies\DummyRegistrationViewModels.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

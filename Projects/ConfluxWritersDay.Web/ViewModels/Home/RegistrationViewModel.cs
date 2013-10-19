@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using ConfluxWritersDay.Web.Infrastructure;
 using ConfluxWritersDay.Web.Models;
 using ConfluxWritersDay.Web.Repositories;
 using DataAnnotationsExtensions;
@@ -11,10 +12,18 @@ namespace ConfluxWritersDay.Web.ViewModels.Home
     [NullGuard(ValidationFlags.Methods | ValidationFlags.Arguments | ValidationFlags.OutValues | ValidationFlags.ReturnValues)]
     public class RegistrationViewModel
     {
+        public RegistrationViewModel()
+            : this(IoC.Resolve<IMembershipOrganisationRepository>().GetAll(), IoC.Resolve<IPaymentMethodRepository>().GetAll())
+        { }
+
         public RegistrationViewModel(IMembershipOrganisationRepository membershipOrganisations, IPaymentMethodRepository paymentMethods)
+            : this(membershipOrganisations.GetAll(), paymentMethods.GetAll())
+        { }
+
+        public RegistrationViewModel(IEnumerable<KeyValuePair<string, string>> membershipOrganisations, IEnumerable<KeyValuePair<string, string>> paymentMethods)
         {
-            this.MembershipOrganisations = membershipOrganisations.GetAll().ToArray();
-            this.PaymentMethods = paymentMethods.GetAll().ToArray();
+            this.MembershipOrganisations = membershipOrganisations.ToArray();
+            this.PaymentMethods = paymentMethods.ToArray();
         }
 
         [Required]
@@ -47,9 +56,9 @@ namespace ConfluxWritersDay.Web.ViewModels.Home
         public string PaymentMethod { get; set; }
 
         [Required]
-        public IEnumerable<KeyValuePair<string, string>> MembershipOrganisations { get; set; }
+        public IEnumerable<KeyValuePair<string, string>> MembershipOrganisations { get; private set; }
 
         [Required]
-        public IEnumerable<KeyValuePair<string, string>> PaymentMethods { get; set; }
+        public IEnumerable<KeyValuePair<string, string>> PaymentMethods { get; private set; }
     }
 }

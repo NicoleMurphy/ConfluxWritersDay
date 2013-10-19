@@ -1,74 +1,88 @@
-﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<ConfluxWritersDay.Web.ViewModels.Home.RegistrationViewModel>
-              
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase
 @{
     Layout = "Shared/PageLayout.cshtml";
 }
+@section Head {
+<script src="/Scripts/App/Registration.js"></script>            
+<link href="/Content/App/Registration.css" rel="stylesheet">
+}
 
-<form action="/registration" method="post" class="form-horizontal">
+<form name="form" method="post" class="form-horizontal" ng-app ng-controller="RegistrationController" novalidate>
 
     <fieldset>
 
         <legend>Registration</legend>
 
         <div class="control-group">
-            <label class="control-label">First Name</label>
+            <label class="control-label" for="firstName">First Name</label>
             <div class="controls">
-                <input id="FirstName" name="FirstName" type="text" placeholder="First Name" class="input-xlarge" value="@Model.FirstName">
+                <input id="firstName" name="firstName" type="text" placeholder="First Name (Required)" class="input-xlarge" ng-model="firstName" required>
+                <span class="validation-messages" ng-show="showValidationMessages(form.firstName)">
+                    <span id="firstName-required-validation-message" ng-show="form.firstName.$error.required">Required.</span>
+                </span>
             </div>
         </div>
-    
+
         <div class="control-group">
+            <div class="controls">
+                <button id="Submit" name="Submit" class="btn btn-primary" ng-click="Submit(ViewModel)">Submit</button>
+            </div>
+        </div>
+
+    </fieldset>
+
+    @*<div class="control-group">
             <label class="control-label">Last Name</label>
             <div class="controls">
-                <input id="LastName" name="LastName" type="text" placeholder="Last Name" class="input-xlarge" value="@Model.LastName">
+                <input id="LastName" name="LastName" type="text" placeholder="Last Name" class="input-xlarge" ng-model="LastName">
             </div>
         </div>
 
         <div class="control-group">
             <label class="control-label">Address</label>
             <div class="controls">
-                <input id="AddressLine1" name="AddressLine1" type="text" placeholder="Address Line 1" class="input-xlarge" value="@Model.AddressLine1">
+                <input id="AddressLine1" name="AddressLine1" type="text" placeholder="Address Line 1" class="input-xlarge" ng-model="AddressLine1">
             </div>
         </div>
-    
+
         <div class="control-group">
             <div class="controls">
-                <input id="AddressLine2" name="AddressLine2" type="text" placeholder="Address Line 2" class="input-xlarge" value="@Model.AddressLine2">
+                <input id="AddressLine2" name="AddressLine2" type="text" placeholder="Address Line 2" class="input-xlarge" ng-model="AddressLine2">
             </div>
         </div>
-    
+
         <div class="control-group">
             <label class="control-label">Suburb</label>
             <div class="controls">
-                <input id="Suburb" name="Suburb" type="text" placeholder="City" class="input-xlarge" value="@Model.Suburb">
+                <input id="Suburb" name="Suburb" type="text" placeholder="City" class="input-xlarge" ng-model="Suburb">
             </div>
         </div>
-    
+
         <div class="control-group">
             <label class="control-label">State</label>
             <div class="controls">
-                <input id="State" name="State" type="text" placeholder="State" class="input-xlarge" value="@Model.State">
+                <input id="State" name="State" type="text" placeholder="State" class="input-xlarge" ng-model="State">
             </div>
         </div>
-    
+
         <div class="control-group">
             <label class="control-label">Postcode</label>
             <div class="controls">
-                <input id="Postcode" name="Postcode" type="text" placeholder="Postcode" class="input-xlarge" value="@Model.Postcode">
+                <input id="Postcode" name="Postcode" type="text" placeholder="Postcode" class="input-xlarge" ng-model="Postcode">
             </div>
         </div>
-    
+
         <div class="control-group">
             <label class="control-label">Email address</label>
             <div class="controls">
-                <input id="EmailAddress" name="EmailAddress" type="text" placeholder="example@example.org" class="input-xlarge" value="@Model.EmailAddress">
+                <input id="EmailAddress" name="EmailAddress" type="text" placeholder="example@example.org" class="input-xlarge" ng-model="EmailAddress">
             </div>
         </div>
 
         <div class="control-group">
             <label class="control-label">Telephone number</label>
             <div class="controls">
-                <input id="TelephoneNumber" name="TelephoneNumber" type="text" placeholder="(99) 9999 9999" class="input-xlarge" value="@Model.TelephoneNumber">
+                <input id="TelephoneNumber" name="TelephoneNumber" type="text" placeholder="(99) 9999 9999" class="input-xlarge" ng-model="TelephoneNumber">
             </div>
         </div>
 
@@ -97,7 +111,7 @@
                 <textarea id="SpecialRequirements" name="SpecialRequirements" rows="5">Special requirements</textarea>
             </div>
         </div>
-    
+
         <div class="control-group">
             <label class="control-label">Payment method</label>
             <div class="controls">
@@ -110,15 +124,7 @@
         </div>
 
         <div class="control-group">
-        <p>todo: show price. 30- members</p>
-        </div>
-
-        <div class="control-group">
-            <div class="controls">
-                <button id="Submit" name="Submit" class="btn btn-primary">Submit</button>
-            </div>
-        </div>
-
-    </fieldset>
+            <p>todo: show price. 30- members</p>
+        </div>*@
 
 </form>

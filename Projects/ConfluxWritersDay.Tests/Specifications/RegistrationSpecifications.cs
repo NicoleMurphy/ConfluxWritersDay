@@ -1,23 +1,25 @@
 ﻿using BddMagic;
-using ConfluxWritersDay.Tests.Fakes.ViewModels.Home;
-using ConfluxWritersDay.Tests.Seleno;
-using ConfluxWritersDay.Tests.Seleno.PageObjects;
+using ConfluxWritersDay.Tests.TestInfrastructure.Seleno;
+using ConfluxWritersDay.Tests.TestInfrastructure.Seleno.PageObjects;
+using ConfluxWritersDay.Web.ViewModels.Home;
+using FakeItEasy;
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ConfluxWritersDay.Tests.Specifications
 {
     [TestClass]
-    public class RegistrationSpecifications : BddFeature
+    public class RegistrationSpecifications : BaseBddFeature
     {
         private RegistrationPage Page;
-        private FakeRegistrationViewModel ViewModel = new FakeRegistrationViewModel();
+        private RegistrationViewModel ViewModel = A.Dummy<RegistrationViewModel>();
 
         public RegistrationSpecifications()
             : base("Registration Page", "todo: story")
         {
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("/registration")]
         public void RegistrationDetails()
         {
             Assert.Inconclusive("todo");
@@ -44,22 +46,40 @@ namespace ConfluxWritersDay.Tests.Specifications
             s.Execute();
         }
 
-        [TestMethod]
-        public void FirstNameIsRequired()
+        [TestCategory("... Under Development ...")]
+        [TestMethod, TestCategory("/registration")]
+        public void WhenFirstNameIsBlankAndSubmitButtonIsClicked()
         {
-            Assert.Inconclusive("todo");
+            var s = this.Scenario();
+            
+            s["Given I am on the registration page"] = p => this.NavigateToRegistrationPage();
+            s["And I have not entered my first name"] = p => this.ViewModel.FirstName = null;
+            s["When I submit my registration"] = p => this.Page.Submit(this.ViewModel);
+            s["Then I will see validation message that first name is required"] = p => this.Page.firstNameRequiredValidationMessage.Displayed.Should().BeTrue();
+            
+            s.Execute();
 
-            var s = this.Scenario("First name is required");
+            Assert.Inconclusive("todo: the opposite to this");
+            // todo: no JavaScript
+        }
+
+        [TestMethod, TestCategory("/registration")]
+        public void WhenFirstNameIsBlankAndFieldIsExited()
+        {
+            var s = this.Scenario();
 
             s["Given I am on the registration page"] = null;
-            s["And I have not entered my first name"] = null;
-            s["When I submit my registration"] = null;
+            s["And I have entered the first name field"] = null;
+            s["And I have left first name field empty"] = null;
+            s["When I exit the first name field"] = null;
             s["Then I will see warning message that first name is required"] = null;
 
             s.Execute();
+
+            Assert.Inconclusive("todo: the opposite to this");
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("/registration")]
         public void LastNameIsRequired()
         {
             Assert.Inconclusive("todo");
@@ -74,7 +94,7 @@ namespace ConfluxWritersDay.Tests.Specifications
             s.Execute();
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("/registration")]
         public void EmailAddressIsRequired()
         {
             Assert.Inconclusive("todo");
@@ -89,7 +109,7 @@ namespace ConfluxWritersDay.Tests.Specifications
             s.Execute();
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("/registration")]
         public void MembershipOrganisation()
         {
             Assert.Inconclusive("todo");
@@ -103,7 +123,7 @@ namespace ConfluxWritersDay.Tests.Specifications
             s.Execute();
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("/registration")]
         public void NoMembershipOrganisation()
         {
             Assert.Inconclusive("todo");
@@ -117,7 +137,7 @@ namespace ConfluxWritersDay.Tests.Specifications
             s.Execute();
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("/registration")]
         public void First30Registrations()
         {
             Assert.Inconclusive("todo");
@@ -131,7 +151,7 @@ namespace ConfluxWritersDay.Tests.Specifications
             s.Execute();
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("/registration")]
         public void ThirtyFirstOrGreaterRegistration()
         {
             Assert.Inconclusive("todo");
@@ -147,7 +167,7 @@ namespace ConfluxWritersDay.Tests.Specifications
             s.Execute();
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("/registration")]
         public void PaymentByDirectDeposit()
         {
             Assert.Inconclusive("todo");
@@ -162,7 +182,7 @@ namespace ConfluxWritersDay.Tests.Specifications
             s.Execute();
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("/registration")]
         public void PaymentByPayPal()
         {
             Assert.Inconclusive("todo");
@@ -177,7 +197,7 @@ namespace ConfluxWritersDay.Tests.Specifications
             s.Execute();
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("/registration")]
         public void PaymentByCheque()
         {
             Assert.Inconclusive("todo");
