@@ -1,10 +1,13 @@
-﻿using BddMagic;
+﻿using System;
+using System.Linq.Expressions;
 using ConfluxWritersDay.Tests.TestInfrastructure.Seleno;
 using ConfluxWritersDay.Tests.TestInfrastructure.Seleno.PageObjects;
 using ConfluxWritersDay.Web.ViewModels.Home;
 using FakeItEasy;
 using FluentAssertions;
+using Humanizer;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenMagic.DataAnnotations;
 
 namespace ConfluxWritersDay.Tests.Specifications
 {
@@ -48,19 +51,9 @@ namespace ConfluxWritersDay.Tests.Specifications
 
         [TestCategory("... Under Development ...")]
         [TestMethod, TestCategory("/registration")]
-        public void WhenFirstNameIsBlankAndSubmitButtonIsClicked()
+        public void FirstNameIsRequired()
         {
-            var s = this.Scenario();
-            
-            s["Given I am on the registration page"] = p => this.NavigateToRegistrationPage();
-            s["And I have not entered my first name"] = p => this.ViewModel.FirstName = null;
-            s["When I submit my registration"] = p => this.Page.Submit(this.ViewModel);
-            s["Then I will see validation message that first name is required"] = p => this.Page.firstNameRequiredValidationMessage.Displayed.Should().BeTrue();
-            
-            s.Execute();
-
-            Assert.Inconclusive("todo: the opposite to this");
-            // todo: no JavaScript
+            this.RequiredField(r => r.FirstName);
         }
 
         [TestMethod, TestCategory("/registration")]
@@ -212,10 +205,44 @@ namespace ConfluxWritersDay.Tests.Specifications
             s.Execute();
         }
 
+        private string GetLabel(IPropertyMetadata metadata)
+        {
+            var name = metadata.Display.GetName();
+
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                name = metadata.PropertyInfo.Name.Dehumanize();
+            }
+
+            return name;
+        }
+
         private void NavigateToRegistrationPage()
         {
             this.Page = Host.Instance.NavigateToInitialPage<RegistrationPage>(RegistrationPage.Url);
         }
 
+        private void RequiredField(Expression<Func<RegistrationViewModel, object>> property)
+        {
+            var metadata = ClassMetadata<RegistrationViewModel>.GetProperty(property);
+            var humanFieldName = this.GetLabel(metadata).ToLower();
+
+            WhenFieldIsBlankAndSubmitButtonIsClicked(metadata, humanFieldName);
+
+            Assert.Inconclusive("todo: the opposite to this");
+            // todo: no JavaScript
+        }
+
+        private void WhenFieldIsBlankAndSubmitButtonIsClicked(IPropertyMetadata metadata, string humanFieldName)
+        {
+            var s = this.Scenario();
+
+            s[string.Format("Given I am on the registration page")] = p => this.NavigateToRegistrationPage();
+            s[string.Format("And I have not entered my {0}", humanFieldName)] = p => metadata.PropertyInfo.SetValue(this.ViewModel, null, null);
+            s[string.Format("When I submit my registration")] = p => this.Page.Submit(this.ViewModel);
+            s[string.Format("Then I will see validation message that {0} is required", humanFieldName)] = p => this.Page.firstNameRequiredValidationMessage.Displayed.Should().BeTrue();
+
+            s.Execute();
+        }
     }
 }
