@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using ConfluxWritersDay.Web.ViewModels.Home;
+using OpenMagic.DataAnnotations;
 using OpenQA.Selenium;
 using TestStack.Seleno.PageObjects;
 
@@ -12,17 +13,18 @@ namespace ConfluxWritersDay.Tests.TestInfrastructure.Seleno.PageObjects
     {
         public const string Url = "/registration";
 
-        public void Submit(RegistrationViewModel viewModel)
+        public void Submit()
         {
-            this.FillForm(viewModel);
             this.SubmitButton.Click();
         }
 
-        private void FillForm(RegistrationViewModel model)
+        public RegistrationPage FillForm(RegistrationViewModel model)
         {
             var implementedProperties = new List<string>() { "FirstName" };
 
             this.FillForm<RegistrationViewModel>(model, typeof(RegistrationViewModel).GetProperties().Where(p => implementedProperties.Contains(p.Name)), new Dictionary<string, Func<RegistrationViewModel, PropertyInfo, string>>());
+
+            return this;
         }
 
         private void FillForm<TModel>(TModel model)
@@ -67,7 +69,7 @@ namespace ConfluxWritersDay.Tests.TestInfrastructure.Seleno.PageObjects
             return property.GetValue(model, null);
         }
 
-        private IWebElement GetElement(PropertyInfo property)
+        public IWebElement GetElement(PropertyInfo property)
         {
             var id = property.Name.ToHtmlNamingConvention();
 
@@ -75,5 +77,26 @@ namespace ConfluxWritersDay.Tests.TestInfrastructure.Seleno.PageObjects
         }
 
         private IWebElement SubmitButton { get { return this.Find.Element(By.Id("Submit")); } }
+
+        public IWebElement GetElement(IPropertyMetadata metadata)
+        {
+            return this.GetElement(metadata.PropertyInfo);
+        }
+
+        public IWebElement SetElement(IPropertyMetadata metadata, object value)
+        {
+            var element = this.GetElement(metadata);
+
+            element.Clear();
+
+            if (value == null)
+            {
+                return element;    
+            }
+
+            element.SendKeys(value.ToString());
+
+            return element;
+        }
     }
 }
