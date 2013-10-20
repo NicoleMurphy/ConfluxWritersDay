@@ -25,7 +25,7 @@ namespace ConfluxWritersDay.Tests.TestInfrastructure.Dummies
         {
             var fields = line.Split(new char[] { '\t' });
 
-            return new RegistrationViewModel(membershipOrganisations, paymentMethods)
+            return new RegistrationViewModel()
             {
                 FirstName = fields[0],
                 LastName = fields[1],
@@ -46,7 +46,44 @@ namespace ConfluxWritersDay.Tests.TestInfrastructure.Dummies
         private static IEnumerable<string> ReadTextFile()
         {
             // DummyRegistrationViewModels.txt created by http://www.mockaroo.com/schemas/276
-            return File.ReadLines("DummyRegistrationViewModels.txt");
+            return File.ReadLines(GetDummyFullPath("DummyRegistrationViewModels.txt"));
+        }
+
+        private static string GetDummyFullPath(string dummyFileName)
+        {
+            var fullPath = Path.Combine(GetDummiesFolder(), dummyFileName);
+
+            if (File.Exists(fullPath) == false)
+            {
+                throw new DirectoryNotFoundException(string.Format("Cannot find dummies file '{0}'.", fullPath));                               
+            }
+
+            return fullPath;
+        }
+
+        private static string GetDummiesFolder()
+        {
+            var projectFolder = GetProjectFolder();
+            var dummiesFolder = Path.Combine(projectFolder, @"TestInfrastructure\Dummies\");
+
+            if (Directory.Exists(dummiesFolder) == false)
+            {
+                throw new DirectoryNotFoundException(string.Format("Cannot find dummies folder '{0}'.", dummiesFolder));               
+            }
+
+            return dummiesFolder;
+        }
+
+        private static string GetProjectFolder()
+        {
+            var folder = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\Projects\ConfluxWritersDay.Tests"));
+
+            if (Directory.Exists(folder) == false)
+            {
+                throw new DirectoryNotFoundException(string.Format("Cannot find project folder '{0}'.", folder));
+            }
+
+            return folder;
         }
     }
 }

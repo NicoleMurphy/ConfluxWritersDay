@@ -1,4 +1,8 @@
-﻿using ConfluxWritersDay.Web.ViewModels.Home;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using ConfluxWritersDay.Web.ViewModels.Home;
 using OpenQA.Selenium;
 using TestStack.Seleno.PageObjects;
 
@@ -8,19 +12,68 @@ namespace ConfluxWritersDay.Tests.TestInfrastructure.Seleno.PageObjects
     {
         public const string Url = "/registration";
 
-        public IWebElement firstNameRequiredValidationMessage { get { return this.Find.Element(By.Id("firstName-required-validation-message")); } }
-
         public void Submit(RegistrationViewModel viewModel)
         {
-            this.Input.Model(viewModel);
-            this.SubmitButton().Click();
+            this.FillForm(viewModel);
+            this.SubmitButton.Click();
         }
 
-        private IWebElement SubmitButton()
+        private void FillForm(RegistrationViewModel model)
         {
-            var button = this.Find.Element(By.Id("Submit"));
+            var implementedProperties = new List<string>() { "FirstName" };
 
-            return button;
+            this.FillForm<RegistrationViewModel>(model, typeof(RegistrationViewModel).GetProperties().Where(p => implementedProperties.Contains(p.Name)), new Dictionary<string, Func<RegistrationViewModel, PropertyInfo, string>>());
         }
+
+        private void FillForm<TModel>(TModel model)
+        {
+            this.FillForm(model, typeof(TModel).GetProperties(), new Dictionary<string, Func<TModel, PropertyInfo, string>>());
+        }
+
+        private void FillForm<TModel>(TModel model, IEnumerable<PropertyInfo> properties, IDictionary<string, Func<TModel, PropertyInfo, string>> valueGetters)
+        {
+            var pairs = from p in properties
+                        let e = this.GetElement(p)
+                        where e != null
+                        select new { Property = p, Element = e };
+
+            foreach (var pair in pairs)
+            {
+                var property = pair.Property;
+                var element = pair.Element;
+
+                element.Clear();
+
+                var value = this.GetValue(model, property, valueGetters);
+
+                if (value == null)
+                {
+                    continue;
+                }
+
+                element.SendKeys(value.ToString());
+            }
+        }
+
+        private object GetValue<TModel>(TModel model, PropertyInfo property, IDictionary<string, Func<TModel, PropertyInfo, string>> valueGetters)
+        {
+            Func<TModel, PropertyInfo, string> valueGetter = null;
+
+            if (valueGetters.TryGetValue(property.Name, out valueGetter))
+            {
+                return valueGetter(model, property);
+            }
+
+            return property.GetValue(model, null);
+        }
+
+        private IWebElement GetElement(PropertyInfo property)
+        {
+            var id = property.Name.ToHtmlNamingConvention();
+
+            return this.Find.Element(By.Id(id));
+        }
+
+        private IWebElement SubmitButton { get { return this.Find.Element(By.Id("Submit")); } }
     }
 }

@@ -8,16 +8,11 @@ namespace ConfluxWritersDay.Tests.TestInfrastructure.Dummies
 {
     public class DummyRegistrationViewModel : DummyDefinition<RegistrationViewModel>
     {
-        private static RegistrationViewModel[] DummyViewModels;
-
-        static DummyRegistrationViewModel()
-        {
-            DummyViewModels = DummyRegistrationViewModels.ReadDummyViewModels().ToArray();
-        }
+        private readonly static Lazy<RegistrationViewModel[]> DummyViewModels = new Lazy<RegistrationViewModel[]>(() => DummyRegistrationViewModels.ReadDummyViewModels().ToArray());
 
         protected override RegistrationViewModel CreateDummy()
         {
-            return DummyViewModels[RandomNumber.NextInt(0, DummyViewModels.Length)];
+            return DummyViewModels.Value[RandomNumber.NextInt(0, DummyViewModels.Value.Length)];
         }
     }
 }

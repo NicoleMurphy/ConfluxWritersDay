@@ -23,7 +23,7 @@ namespace ConfluxWritersDay.Web.Modules
 
             Get["/registration"] = parameters =>
                 {
-                    return View["registration.cshtml", new RegistrationViewModel(membershipOrganisationRepository.GetAll(), paymentMethodRepository.GetAll())];
+                    return View["registration"];
                 };
 
             Post["/registration"] = parameters =>

@@ -1,9 +1,5 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using ConfluxWritersDay.Web.Infrastructure;
+﻿using System.ComponentModel.DataAnnotations;
 using ConfluxWritersDay.Web.Models;
-using ConfluxWritersDay.Web.Repositories;
 using DataAnnotationsExtensions;
 using NullGuard;
 
@@ -13,18 +9,7 @@ namespace ConfluxWritersDay.Web.ViewModels.Home
     public class RegistrationViewModel
     {
         public RegistrationViewModel()
-            : this(IoC.Resolve<IMembershipOrganisationRepository>().GetAll(), IoC.Resolve<IPaymentMethodRepository>().GetAll())
         { }
-
-        public RegistrationViewModel(IMembershipOrganisationRepository membershipOrganisations, IPaymentMethodRepository paymentMethods)
-            : this(membershipOrganisations.GetAll(), paymentMethods.GetAll())
-        { }
-
-        public RegistrationViewModel(IEnumerable<KeyValuePair<string, string>> membershipOrganisations, IEnumerable<KeyValuePair<string, string>> paymentMethods)
-        {
-            this.MembershipOrganisations = membershipOrganisations.ToArray();
-            this.PaymentMethods = paymentMethods.ToArray();
-        }
 
         [Required]
         public string FirstName { get; set; }
@@ -54,11 +39,5 @@ namespace ConfluxWritersDay.Web.ViewModels.Home
 
         [Required, PaymentMethod]
         public string PaymentMethod { get; set; }
-
-        [Required]
-        public IEnumerable<KeyValuePair<string, string>> MembershipOrganisations { get; private set; }
-
-        [Required]
-        public IEnumerable<KeyValuePair<string, string>> PaymentMethods { get; private set; }
     }
 }

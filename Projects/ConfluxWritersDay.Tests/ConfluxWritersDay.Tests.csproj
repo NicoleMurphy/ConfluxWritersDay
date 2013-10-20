@@ -119,6 +119,7 @@
     <Compile Include="Specifications\RegistrationSpecifications.cs" />
     <Compile Include="TestInfrastructure\Dummies\DummyRegistrationViewModel.cs" />
     <Compile Include="TestInfrastructure\Dummies\DummyRegistrationViewModels.cs" />
+    <Compile Include="TestInfrastructure\StringExtensions.cs" />
     <Compile Include="ViewModels\Home\MarkdownViewModelTests.cs" />
     <Compile Include="ViewModels\Home\RegistrationViewModelTests.cs" />
   </ItemGroup>
@@ -129,7 +130,9 @@
     <Content Include="Specifications\Program.txt" />
     <Content Include="Specifications\Registration.txt" />
     <Content Include="Specifications\Venue.txt" />
-    <Content Include="TestInfrastructure\Dummies\DummyRegistrationViewModels.txt" />
+    <Content Include="TestInfrastructure\Dummies\DummyRegistrationViewModels.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

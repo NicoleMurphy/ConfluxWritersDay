@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
+using ConfluxWritersDay.Tests.TestInfrastructure;
 using ConfluxWritersDay.Tests.TestInfrastructure.Seleno;
 using ConfluxWritersDay.Tests.TestInfrastructure.Seleno.PageObjects;
 using ConfluxWritersDay.Web.ViewModels.Home;
@@ -8,7 +9,7 @@ using FluentAssertions;
 using Humanizer;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenMagic.DataAnnotations;
-using TestStack.Seleno.PageObjects.Locators;
+using OpenQA.Selenium;
 
 namespace ConfluxWritersDay.Tests.Specifications
 {
@@ -16,11 +17,23 @@ namespace ConfluxWritersDay.Tests.Specifications
     public class RegistrationSpecifications : BaseBddFeature
     {
         private RegistrationPage Page;
-        private RegistrationViewModel ViewModel = A.Dummy<RegistrationViewModel>();
+        private RegistrationViewModel ViewModel;
 
         public RegistrationSpecifications()
             : base("Registration Page", "todo: story")
         {
+            this.NewTest();
+        }
+
+        private void NewTest()
+        {
+            this.ViewModel = A.Dummy<RegistrationViewModel>();
+        }
+
+        [TestMethod, TestCategory("/registration")]
+        public void WhenJavaScriptIsNotEnabled()
+        {
+            Assert.Inconclusive("todo");
         }
 
         [TestMethod, TestCategory("/registration")]
@@ -241,11 +254,12 @@ namespace ConfluxWritersDay.Tests.Specifications
             this.WhenRequiredFieldIsNotBlankAndSubmitButtonIsClicked(metadata);
             this.WhenRequiredFieldIsBlankAndExited(metadata);
             this.WhenRequiredFieldIsNotBlankAndExited(metadata);
-            this.WhenJavaScriptIsNotEnabledAndRequiredFieldIsBlankAndSubmitButtonIsClicked(metadata);
         }
 
         private void WhenRequiredFieldIsBlankAndSubmitButtonIsClicked(IPropertyMetadata metadata)
         {
+            this.NewTest();
+
             var propertyId = this.GetPropertyId(metadata);
             var humanFieldName = this.GetHumanFieldName(metadata);
             var s = this.Scenario();
@@ -253,29 +267,47 @@ namespace ConfluxWritersDay.Tests.Specifications
             s[string.Format("Given I am on the registration page")] = p => this.NavigateToRegistrationPage();
             s[string.Format("And I have not entered my {0}", humanFieldName)] = p => metadata.PropertyInfo.SetValue(this.ViewModel, "", null);
             s[string.Format("When I submit my registration")] = p => this.Page.Submit(this.ViewModel);
-            s[string.Format("Then I will see validation message that {0} is required", humanFieldName)] = p => this.Page.firstNameRequiredValidationMessage.Displayed.Should().BeTrue();
+            s[string.Format("Then I will see validation message that {0} is required", humanFieldName)] = p => this.GetRequiredValidationMesssage(metadata).Displayed.Should().BeTrue();
 
             s.Execute();
         }
 
         private void WhenRequiredFieldIsNotBlankAndSubmitButtonIsClicked(IPropertyMetadata metadata)
         {
-            throw new NotImplementedException();
+            this.NewTest();
+
+            var propertyId = this.GetPropertyId(metadata);
+            var humanFieldName = this.GetHumanFieldName(metadata);
+            var s = this.Scenario();
+
+            s[string.Format("Given I am on the registration page")] = p => this.NavigateToRegistrationPage();
+            s[string.Format("And I have not entered my {0}", humanFieldName)] = p => { };
+            s[string.Format("When I submit my registration")] = p => this.Page.Submit(this.ViewModel);
+            s[string.Format("Then I will not see required validation message", humanFieldName)] = p => this.GetRequiredValidationMesssage(metadata).Displayed.Should().BeFalse();
+
+            s.Execute();
+        }
+
+        private IWebElement GetRequiredValidationMesssage(IPropertyMetadata metadata)
+        {
+            var elementId = (metadata.PropertyInfo.Name + "-required-validation-message").ToHtmlNamingConvention();
+            var element = this.Page.Find.Element(By.Id(elementId));
+
+            return element;
         }
 
         private void WhenRequiredFieldIsBlankAndExited(IPropertyMetadata metadata)
         {
-            throw new NotImplementedException();
+            this.NewTest();
+
+            Assert.Inconclusive("todo");
         }
 
         private void WhenRequiredFieldIsNotBlankAndExited(IPropertyMetadata metadata)
         {
-            throw new NotImplementedException();
-        }
+            this.NewTest();
 
-        private void WhenJavaScriptIsNotEnabledAndRequiredFieldIsBlankAndSubmitButtonIsClicked(IPropertyMetadata metadata)
-        {
-            throw new NotImplementedException();
+            Assert.Inconclusive("todo");
         }
     }
 }
