@@ -12,6 +12,6 @@ function RegistrationController($scope) {
 
     // todo: think this could/should be a directive.
     $scope.showValidationMessages = function (field) {
-        return (field.$invalid && (field.$dirty || $scope.submitAttempted))
+        return (field.$invalid)
     }
 }

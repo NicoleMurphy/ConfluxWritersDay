@@ -56,7 +56,7 @@ namespace ConfluxWritersDay.Tests.Specifications
             s["And entered special requirements 'Wheelchair access'"] = p => this.ViewModel.SpecialRequirements = p[0];
             s["And selected payment method of 'Cheque'"] = p => this.ViewModel.PaymentMethod = p[0];
             s["And selected membership organisation of 'Conflux9'"] = p => this.ViewModel.MembershipOrganisation = p[0];
-            s["When I submit my registration"] = p => this.Page.Submit(this.ViewModel);
+            s["When I submit my registration"] = p => this.Page.FillForm(this.ViewModel).Submit();
             s["Then I will see thank you page"] = null;
             s["And I will receive an email"] = null;
 
@@ -241,6 +241,14 @@ namespace ConfluxWritersDay.Tests.Specifications
             return metadata.PropertyInfo.Name;
         }
 
+        private IWebElement GetRequiredValidationMesssage(IPropertyMetadata metadata)
+        {
+            var elementId = (metadata.PropertyInfo.Name + "-required-validation-message").ToHtmlNamingConvention();
+            var element = this.Page.Find.Element(By.Id(elementId));
+
+            return element;
+        }
+
         private void NavigateToRegistrationPage()
         {
             this.Page = Host.Instance.NavigateToInitialPage<RegistrationPage>(RegistrationPage.Url);
@@ -252,8 +260,8 @@ namespace ConfluxWritersDay.Tests.Specifications
 
             this.WhenRequiredFieldIsBlankAndSubmitButtonIsClicked(metadata);
             this.WhenRequiredFieldIsNotBlankAndSubmitButtonIsClicked(metadata);
-            this.WhenRequiredFieldIsBlankAndExited(metadata);
             this.WhenRequiredFieldIsNotBlankAndExited(metadata);
+            this.WhenRequiredFieldIsBlankAndExited(metadata);
         }
 
         private void WhenRequiredFieldIsBlankAndSubmitButtonIsClicked(IPropertyMetadata metadata)
@@ -265,8 +273,8 @@ namespace ConfluxWritersDay.Tests.Specifications
             var s = this.Scenario();
 
             s[string.Format("Given I am on the registration page")] = p => this.NavigateToRegistrationPage();
-            s[string.Format("And I have not entered my {0}", humanFieldName)] = p => metadata.PropertyInfo.SetValue(this.ViewModel, "", null);
-            s[string.Format("When I submit my registration")] = p => this.Page.Submit(this.ViewModel);
+            s[string.Format("And I have not entered my {0}", humanFieldName)] = p => this.Page.SetElement(metadata, null);
+            s[string.Format("When I submit my registration")] = p => this.Page.Submit();
             s[string.Format("Then I will see validation message that {0} is required", humanFieldName)] = p => this.GetRequiredValidationMesssage(metadata).Displayed.Should().BeTrue();
 
             s.Execute();
@@ -278,36 +286,50 @@ namespace ConfluxWritersDay.Tests.Specifications
 
             var propertyId = this.GetPropertyId(metadata);
             var humanFieldName = this.GetHumanFieldName(metadata);
+            var value = metadata.PropertyInfo.GetValue(this.ViewModel, null);
             var s = this.Scenario();
 
             s[string.Format("Given I am on the registration page")] = p => this.NavigateToRegistrationPage();
-            s[string.Format("And I have not entered my {0}", humanFieldName)] = p => { };
-            s[string.Format("When I submit my registration")] = p => this.Page.Submit(this.ViewModel);
-            s[string.Format("Then I will not see required validation message", humanFieldName)] = p => this.GetRequiredValidationMesssage(metadata).Displayed.Should().BeFalse();
+            s[string.Format("And I have entered my {0}", humanFieldName)] = p => this.Page.SetElement(metadata, value);
+            s[string.Format("When I submit my registration")] = p => this.Page.Submit();
+            s[string.Format("Then I will not see required validation message for my {0}", humanFieldName)] = p => this.GetRequiredValidationMesssage(metadata).Displayed.Should().BeFalse();
 
             s.Execute();
-        }
-
-        private IWebElement GetRequiredValidationMesssage(IPropertyMetadata metadata)
-        {
-            var elementId = (metadata.PropertyInfo.Name + "-required-validation-message").ToHtmlNamingConvention();
-            var element = this.Page.Find.Element(By.Id(elementId));
-
-            return element;
         }
 
         private void WhenRequiredFieldIsBlankAndExited(IPropertyMetadata metadata)
         {
             this.NewTest();
 
-            Assert.Inconclusive("todo");
+            IWebElement element = null;
+            var propertyId = this.GetPropertyId(metadata);
+            var humanFieldName = this.GetHumanFieldName(metadata);
+            var s = this.Scenario();
+
+            s[string.Format("Given I am on the registration page")] = p => { this.NavigateToRegistrationPage(); element = this.Page.GetElement(metadata); };
+            s[string.Format("And I have not entered my {0}", humanFieldName)] = p => element.Click();
+            s[string.Format("When I exit the control")] = p => element.SendKeys("\t");
+            s[string.Format("Then I will see validation message that {0} is required", humanFieldName)] = p => this.GetRequiredValidationMesssage(metadata).Displayed.Should().BeTrue();
+
+            s.Execute();
         }
 
         private void WhenRequiredFieldIsNotBlankAndExited(IPropertyMetadata metadata)
         {
             this.NewTest();
 
-            Assert.Inconclusive("todo");
+            IWebElement element = null;
+            var propertyId = this.GetPropertyId(metadata);
+            var humanFieldName = this.GetHumanFieldName(metadata);
+            var value = metadata.PropertyInfo.GetValue(this.ViewModel, null);
+            var s = this.Scenario();
+
+            s[string.Format("Given I am on the registration page")] = p => { this.NavigateToRegistrationPage(); element = this.Page.GetElement(metadata); };
+            s[string.Format("And I have not entered my {0}", humanFieldName)] = p => { element.Click(); element.SendKeys(value.ToString()); };
+            s[string.Format("When I exit the control")] = p => element.SendKeys("\t");
+            s[string.Format("Then I will see validation message that {0} is required", humanFieldName)] = p => this.GetRequiredValidationMesssage(metadata).Displayed.Should().BeFalse();
+
+            s.Execute();
         }
     }
 }
