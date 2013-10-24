@@ -1,17 +1,27 @@
-﻿'use strict';
+﻿// todo: why isn't _references.js working?
+/// <reference path="../angular.js" />
+/// <reference path="../angular-animate.js" />
+/// <reference path="../angular-cookies.js" />
+/// <reference path="../angular-loader.js" />
+/// <reference path="../angular-mocks.js" />
+/// <reference path="../angular-resource.js" />
+/// <reference path="../angular-route.js" />
+/// <reference path="../angular-sanitize.js" />
+/// <reference path="../angular-scenario.js" />
+/// <reference path="../angular-touch.js" />
 
-var app = angular.module("RegistrationApp", []);
+'use strict';
 
-function RegistrationController($scope) {
+var app = angular.module('registrationApp', []);
 
-    $scope.submitAttempted = false;
+app.controller('RegistrationController', function ($scope) {
 
     $scope.Submit = function (model) {
-        $scope.submitAttempted = true;
+        alert("todo: submit");
     };
 
     // todo: think this could/should be a directive.
     $scope.showValidationMessages = function (field) {
-        return (field.$invalid)
-    }
-}
+        return (field.$invalid);
+    };
+});
