@@ -16,22 +16,15 @@
         <div class="control-group">
             <label class="control-label" for="firstName">First Name</label>
             <div class="controls">
-                <input id="firstName" name="firstName" type="text" placeholder="First Name (Required)" class="input-xlarge" ng-model="firstName" required>
+                <input id="firstName" name="firstName" type="text" placeholder="First Name" class="input-xlarge" ng-model="firstName" required>
                 <span class="validation-messages" ng-show="showValidationMessages(form.firstName)">
                     <span id="firstName-required-validation-message" ng-show="form.firstName.$error.required">Required.</span>
                 </span>
             </div>
         </div>
 
+        <!--
         <div class="control-group">
-            <div class="controls">
-                <button id="Submit" name="Submit" class="btn btn-primary" ng-click="Submit(ViewModel)">Submit</button>
-            </div>
-        </div>
-
-    </fieldset>
-
-    @*<div class="control-group">
             <label class="control-label">Last Name</label>
             <div class="controls">
                 <input id="LastName" name="LastName" type="text" placeholder="Last Name" class="input-xlarge" ng-model="LastName">
@@ -125,6 +118,15 @@
 
         <div class="control-group">
             <p>todo: show price. 30- members</p>
-        </div>*@
+        </div>
+        -->
+
+        <div class="control-group">
+            <div class="controls">
+                <button id="Submit" name="Submit" class="btn btn-primary" ng-click="Submit(ViewModel)">Submit</button>
+            </div>
+        </div>
+
+    </fieldset>
 
 </form>
