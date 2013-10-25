@@ -52,19 +52,38 @@ textfield.directive('field', function ($compile, $http, $templateCache, $interpo
         require: '?^form',    // If we are in a form then we can access the ngModelController
         compile: function compile(element, attrs) {
 
-            // Find all the <validator> child elements and extract their validation message info
-            var validationMessages = [];
-            angular.forEach(element.find('validator'), function (validatorElement) {
-                validatorElement = angular.element(validatorElement);
-                validationMessages.push({
-                    key: validatorElement.attr('key'),
-                    getMessage: $interpolate(validatorElement.text())
-                });
-            });
-
             var labelContent = getLabelContent(element, attrs.ngModel);
-
             tryRemoveAttribute(element, 'label');
+
+            // Find all the <validator> child elements and extract their validation message info
+            var hasRequiredValidator = false;
+            var validationMessages = [];
+
+            angular.forEach(element.find('validator'),
+                function (validatorElement) {
+
+                    validatorElement = angular.element(validatorElement);
+
+                    var key = validatorElement.attr('key');
+
+                    if (key === 'required') {
+                        hasRequiredValidator = true;
+                    }
+
+                    validationMessages.push({
+                        key: key,
+                        getMessage: $interpolate(validatorElement.text())
+                    });
+                }
+            );
+
+            if (!hasRequiredValidator && attrs.required !== undefined) {
+
+                validationMessages.push({
+                    key: "required",
+                    getMessage: $interpolate(labelContent + " is required.")
+                });
+            }
 
             var template = attrs.template || 'field';
 
