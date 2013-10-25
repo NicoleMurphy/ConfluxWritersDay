@@ -93,7 +93,9 @@
     <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\ui\textfield.js" />
     <Content Include="App\registration\registration.js" />
+    <Content Include="App\ui\textfield.template.html" />
     <Content Include="Content\Images\bonechime.jpg" />
     <Content Include="Content\Images\conflux-writers-black.jpg" />
     <Content Include="Content\Images\dancing-with-the-devil.jpg" />

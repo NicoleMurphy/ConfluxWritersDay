@@ -3,13 +3,14 @@
 
 'use strict';
 
-var app = angular.module('registrationApp', []);
+var app = angular.module('registrationApp', ['textfield']);
 
 app.controller('RegistrationController', function ($scope) {
 
     $scope.Registration = {
         FirstName: "a",
-        LastName: ""
+        LastName: "",
+        Suburb: "",
     }
 
     $scope.submit = function (model) {
