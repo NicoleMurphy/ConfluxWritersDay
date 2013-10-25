@@ -93,9 +93,10 @@
     <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App\ui\field.js" />
+    <Content Include="App\infrastructure\services\humanizer.js" />
+    <Content Include="App\infrastructure\ui\field.js" />
     <Content Include="App\registration\registration.js" />
-    <Content Include="App\ui\field.template.html" />
+    <Content Include="App\infrastructure\ui\field.template.html" />
     <Content Include="Content\Images\bonechime.jpg" />
     <Content Include="Content\Images\conflux-writers-black.jpg" />
     <Content Include="Content\Images\dancing-with-the-devil.jpg" />

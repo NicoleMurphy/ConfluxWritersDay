@@ -257,4 +257,5 @@
 /// <reference path="i18n/angular-locale_zu-za.js" />
 /// <reference path="i18n/angular-locale_zu.js" />
 /// <reference path="../app/registration/registration.js" />
-/// <reference path="../app/ui/field.js" />
+/// <reference path="../app/infrastructure/ui/field.js" />
+/// <reference path="../app/infrastructure/services/humanizer.js" />
