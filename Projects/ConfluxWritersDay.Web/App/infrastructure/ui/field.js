@@ -13,6 +13,37 @@ textfield.directive('field', function ($compile, $http, $templateCache, $interpo
         return angular.element(element.find('input')[0] || element.find('textarea')[0] || element.find('select')[0]);
     };
 
+    function getLabelContent(element, ngModel) {
+
+        if (element.attr('label')) {
+
+            return labelContent = element.attr('label');
+        }
+        if (element.find('label')[0]) {
+
+            return element.find('label').html();
+        }
+        else {
+
+            var fullModelName = ngModel;
+            var fieldName = fullModelName.substring(fullModelName.indexOf(".") + 1);
+            var humanized = humanizer.humanize(fieldName);
+
+            return humanized;
+        }
+
+    };
+
+    function tryRemoveAttribute(element, name) {
+
+        var attribute = element.attr(name);
+
+        if (attribute === undefined) {
+            return;
+        }
+
+        attribute.element[0].removeAttribute(name);
+    };
 
     return {
         restrict: 'E',
@@ -31,21 +62,9 @@ textfield.directive('field', function ($compile, $http, $templateCache, $interpo
                 });
             });
 
-            // Find the content that will go into the new label
-            var labelContent;
-            if (element.attr('label')) {
-                labelContent = element.attr('label');
-                element[0].removeAttribute('label');
-            }
-            if (element.find('label')[0]) {
-                labelContent = element.find('label').html();
-            }
-            else {
-                var fullModelName = attrs.ngModel;
-                var fieldName = fullModelName.substring(fullModelName.indexOf(".") + 1);
+            var labelContent = getLabelContent(element, attrs.ngModel);
 
-                labelContent = humanizer.humanize(fieldName);
-            }
+            tryRemoveAttribute(element, 'label');
 
             // Load up the template for this kind of field
             var template = attrs.template || 'field';   // Default to the simple input if none given
