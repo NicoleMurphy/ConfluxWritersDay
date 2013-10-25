@@ -17,7 +17,7 @@ textfield.directive('field', function ($compile, $http, $templateCache, $interpo
 
         if (element.attr('label')) {
 
-            return labelContent = element.attr('label');
+            return element.attr('label');
         }
         if (element.find('label')[0]) {
 
@@ -42,7 +42,7 @@ textfield.directive('field', function ($compile, $http, $templateCache, $interpo
             return;
         }
 
-        attribute.element[0].removeAttribute(name);
+        element[0].removeAttribute(name);
     };
 
     return {

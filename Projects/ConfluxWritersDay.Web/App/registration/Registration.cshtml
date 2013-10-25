@@ -20,130 +20,34 @@
 
         <field ng-model="Registration.FirstName" required></field>
         <field ng-model="Registration.LastName" required></field>
+        <field ng-model="Registration.AddressLine1"></field>
+        <field ng-model="Registration.AddressLine2"></field>
         <field ng-model="Registration.Suburb"></field>
+        <field ng-model="Registration.State"></field>
+        <field ng-model="Registration.Postcode"></field>
+        <field ng-model="Registration.EmailAddress" type="email"></field>
+        <field ng-model="Registration.TelephoneNumber"></field>
+        <field ng-model="Registration.MembershipOrganisation" label="Membership" type="select"></field>
+        <field ng-model="Registration.DietaryRequirements" type="textarea"></field>
+        <field ng-model="Registration.SpecialRequirements" type="textarea"></field>
+        <field ng-model="Registration.PaymentMethod" type="select"></field>
 
-            <!--
-        <field ng-model="myModel.myText" type="text" label="My {{'Interp' + 'olated'}} Label" required="true">
-            <validator key="required">My Text is required</validator>
-        </field>
 
-            <div class="control-group">
-                <label class="control-label" for="FirstName">First Name</label>
-                <div class="controls">
-                    <input id="FirstName" name="FirstName" type="text" placeholder="First Name" class="input-xlarge" ng-model="FirstName" required>
-                    <span class="validation-messages" ng-show="showValidationMessages(form.FirstName)">
-                        <span id="FirstName-required-validation-message" ng-show="form.FirstName.$error.required">Required.</span>
-                    </span>
-                </div>
+        <div class="control-group">
+            <p>todo: show price. &le; &amp; &gt; 30 members</p>
+        </div>
+
+        <div class="control-group">
+            <div class="controls">
+                <button id="Submit" name="Submit" class="btn btn-primary" ng-click="Submit(Registration)">Submit</button>
             </div>
+        </div>
 
-            <div class="control-group">
-                <label class="control-label">Last Name</label>
-                <div class="controls">
-                    <input id="LastName" name="LastName" type="text" placeholder="Last Name" class="input-xlarge" ng-model="LastName">
-                </div>
-            </div>
-
-            <div class="control-group">
-                <label class="control-label">Address</label>
-                <div class="controls">
-                    <input id="AddressLine1" name="AddressLine1" type="text" placeholder="Address Line 1" class="input-xlarge" ng-model="AddressLine1">
-                </div>
-            </div>
-
-            <div class="control-group">
-                <div class="controls">
-                    <input id="AddressLine2" name="AddressLine2" type="text" placeholder="Address Line 2" class="input-xlarge" ng-model="AddressLine2">
-                </div>
-            </div>
-
-            <div class="control-group">
-                <label class="control-label">Suburb</label>
-                <div class="controls">
-                    <input id="Suburb" name="Suburb" type="text" placeholder="City" class="input-xlarge" ng-model="Suburb">
-                </div>
-            </div>
-
-            <div class="control-group">
-                <label class="control-label">State</label>
-                <div class="controls">
-                    <input id="State" name="State" type="text" placeholder="State" class="input-xlarge" ng-model="State">
-                </div>
-            </div>
-
-            <div class="control-group">
-                <label class="control-label">Postcode</label>
-                <div class="controls">
-                    <input id="Postcode" name="Postcode" type="text" placeholder="Postcode" class="input-xlarge" ng-model="Postcode">
-                </div>
-            </div>
-
-            <div class="control-group">
-                <label class="control-label">Email address</label>
-                <div class="controls">
-                    <input id="EmailAddress" name="EmailAddress" type="text" placeholder="example@example.org" class="input-xlarge" ng-model="EmailAddress">
-                </div>
-            </div>
-
-            <div class="control-group">
-                <label class="control-label">Telephone number</label>
-                <div class="controls">
-                    <input id="TelephoneNumber" name="TelephoneNumber" type="text" placeholder="(99) 9999 9999" class="input-xlarge" ng-model="TelephoneNumber">
-                </div>
-            </div>
-
-            <div class="control-group">
-                <label class="control-label">Registration Type</label>
-                <div class="controls">
-                    <select id="RegistrationType" name="RegistrationType" class="input-xlarge">
-                        <option>Conflux 9 Member</option>
-                        <option>CSFG Member</option>
-                        <option>ACT Writers Centre Member</option>
-                        <option>Non-Member</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="control-group">
-                <label class="control-label">Dietary requirements</label>
-                <div class="controls">
-                    <textarea id="DietaryRequirements" name="DietaryRequirements" rows="5">Dietary requirements</textarea>
-                </div>
-            </div>
-
-            <div class="control-group">
-                <label class="control-label">Special requirements</label>
-                <div class="controls">
-                    <textarea id="SpecialRequirements" name="SpecialRequirements" rows="5">Special requirements</textarea>
-                </div>
-            </div>
-
-            <div class="control-group">
-                <label class="control-label">Payment method</label>
-                <div class="controls">
-                    <select id="PaymentMethod" name="PaymentMethod" class="input-xlarge">
-                        <option>Paypal</option>
-                        <option>Cheque / Money order</option>
-                        <option>Direct Deposit</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="control-group">
-                <p>todo: show price. 30- members</p>
-            </div>
-            -->
-
-            <div class="control-group">
-                <div class="controls">
-                    <button id="Submit" name="Submit" class="btn btn-primary" ng-click="Submit(Registration)">Submit</button>
-                </div>
-            </div>
-
-            @if (Model.isDeveloperMachine)
-            {
-                <pre>{{Registration | json}}</pre>
-            }
-</fieldset>
+        @if (Model.isDeveloperMachine)
+        {
+            <pre>{{Registration | json}}</pre>
+        }
+        
+    </fieldset>
 
 </form>
