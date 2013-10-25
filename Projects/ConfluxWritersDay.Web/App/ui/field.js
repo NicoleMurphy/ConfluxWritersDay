@@ -98,7 +98,7 @@ textfield.directive('field', function ($compile, $http, $templateCache, $interpo
                     // (we need to replace dots with something to work with browsers and also form scope)
                     // (We couldn't do this in the compile function as we need the scope to
                     // be able to calculate the unique id)
-                    childScope.$modelId = attrs.ngModel.replace('.', '_').toLowerCase() + '_' + childScope.$id;
+                    childScope.$modelId = attrs.ngModel.replace('.', '-');
 
                     // Wire up the input (id and name) and its label (for)
                     // (We need to set the input element's name here before we compile.
