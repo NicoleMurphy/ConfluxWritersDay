@@ -257,4 +257,4 @@
 /// <reference path="i18n/angular-locale_zu-za.js" />
 /// <reference path="i18n/angular-locale_zu.js" />
 /// <reference path="../app/registration/registration.js" />
-/// <reference path="../app/ui/textfield.js" />
+/// <reference path="../app/ui/field.js" />

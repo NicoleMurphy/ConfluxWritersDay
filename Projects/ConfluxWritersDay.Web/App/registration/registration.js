@@ -3,7 +3,7 @@
 
 'use strict';
 
-var app = angular.module('registrationApp', ['textfield']);
+var app = angular.module('registrationApp', ['field']);
 
 app.controller('RegistrationController', function ($scope) {
 
