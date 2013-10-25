@@ -2,28 +2,32 @@
 @{
     Layout = "Shared/PageLayout.cshtml";
 }
-@section Head {
-<script src="/Scripts/App/Registration.js"></script>            
-<link href="/Content/App/Registration.css" rel="stylesheet">
+@section Scripts {
+    <script src="/Scripts/angular.min.js"></script>
+    <script src="/App/registration/registration.js"></script>
 }
 
 <form name="form" method="post" class="form-horizontal" ng-app="registrationApp" ng-controller="RegistrationController" novalidate>
 
     <fieldset>
-
+        
         <legend>Registration</legend>
 
+        <!--
+    <field ng-model="myModel.myText" type="text" label="My {{'Interp' + 'olated'}} Label" required="true">
+        <validator key="required">My Text is required</validator>
+    </field>
+
         <div class="control-group">
-            <label class="control-label" for="firstName">First Name</label>
+            <label class="control-label" for="FirstName">First Name</label>
             <div class="controls">
-                <input id="firstName" name="firstName" type="text" placeholder="First Name" class="input-xlarge" ng-model="firstName" required>
-                <span class="validation-messages" ng-show="showValidationMessages(form.firstName)">
-                    <span id="firstName-required-validation-message" ng-show="form.firstName.$error.required">Required.</span>
+                <input id="FirstName" name="FirstName" type="text" placeholder="First Name" class="input-xlarge" ng-model="FirstName" required>
+                <span class="validation-messages" ng-show="showValidationMessages(form.FirstName)">
+                    <span id="FirstName-required-validation-message" ng-show="form.FirstName.$error.required">Required.</span>
                 </span>
             </div>
         </div>
 
-        <!--
         <div class="control-group">
             <label class="control-label">Last Name</label>
             <div class="controls">
