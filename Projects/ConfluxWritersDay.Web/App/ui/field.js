@@ -9,9 +9,30 @@ var textfield = angular.module('field', [])
 
 textfield.directive('field', function ($compile, $http, $templateCache, $interpolate) {
 
-    var findInputElement = function (element) {
+    function findInputElement(element) {
         return angular.element(element.find('input')[0] || element.find('textarea')[0] || element.find('select')[0]);
     };
+
+    function humanize(text) {
+
+        var output = text.substring(0, 1);
+
+        for (var i = 1; i < text.length; i++) {
+
+            var character = text.charAt(i);
+            var isLowerCase = character.toLowerCase() === character;
+
+            if (isLowerCase) {
+                output += character;
+
+            }
+            else {
+                output += " " + character;
+            }
+        }
+
+        return output;
+    }
 
     return {
         restrict: 'E',
@@ -43,7 +64,7 @@ textfield.directive('field', function ($compile, $http, $templateCache, $interpo
                 var fullModelName = attrs.ngModel;
                 var fieldName = fullModelName.substring(fullModelName.indexOf(".") + 1);
 
-                labelContent = fieldName;
+                labelContent = humanize(fieldName);
             }
 
             // Load up the template for this kind of field
