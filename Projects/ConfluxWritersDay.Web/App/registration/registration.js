@@ -7,8 +7,13 @@ var app = angular.module('registrationApp', []);
 
 app.controller('RegistrationController', function ($scope) {
 
-    $scope.Submit = function (model) {
-        alert("todo: submit");
+    $scope.Registration = {
+        FirstName: "a",
+        LastName: ""
+    }
+
+    $scope.submit = function (model) {
+        alert("todo: submit " + model);
     };
 });
 

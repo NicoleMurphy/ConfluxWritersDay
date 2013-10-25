@@ -1,5 +1,6 @@
 ﻿using ConfluxWritersDay.Web.Repositories;
 using ConfluxWritersDay.Web.ViewModels.Home;
+using Nancy;
 using Nancy.ModelBinding;
 using Nancy.Responses.Negotiation;
 using Nancy.Validation;
@@ -12,7 +13,8 @@ namespace ConfluxWritersDay.Web.Modules
             IMarkdownRepository markdownRepository,
             IMembershipOrganisationRepository membershipOrganisationRepository,
             IPaymentMethodRepository paymentMethodRepository,
-            RegistrationViewModel registrationViewModel
+            RegistrationViewModel registrationViewModel,
+            IRootPathProvider rootPathProvider
         )
         {
             // todo: do I really need / and /{page}?
@@ -23,7 +25,9 @@ namespace ConfluxWritersDay.Web.Modules
 
             Get["/registration"] = parameters =>
                 {
-                    return View["registration"];
+                    var isDeveloperMachine = rootPathProvider.GetRootPath().StartsWith(@"C:\Users\Tim\Code\");
+
+                    return View["registration", new { isDeveloperMachine }];
                 };
 
             Post["/registration"] = parameters =>

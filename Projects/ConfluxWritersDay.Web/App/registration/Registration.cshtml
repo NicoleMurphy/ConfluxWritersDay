@@ -1,17 +1,20 @@
-﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<dynamic>
 @{
     Layout = "Shared/PageLayout.cshtml";
 }
 @section Scripts {
     <script src="/Scripts/angular.min.js"></script>
-    <script src="/App/registration/registration.js"></script>
+    <script src="/App/registration/Registration.js"></script>
 }
 
 <form name="form" method="post" class="form-horizontal" ng-app="registrationApp" ng-controller="RegistrationController" novalidate>
 
-    <fieldset>
+    <modelet>
         
         <legend>Registration</legend>
+
+        <input id="FirstName" name="FirstName" type="text" placeholder="First Name" class="input-xlarge" ng-model="Registration.FirstName" required>
+        <input id="LastName" name="LastName" type="text" placeholder="Last Name" class="input-xlarge" ng-model="Registration.LastName" required>
 
         <!--
     <field ng-model="myModel.myText" type="text" label="My {{'Interp' + 'olated'}} Label" required="true">
@@ -127,10 +130,14 @@
 
         <div class="control-group">
             <div class="controls">
-                <button id="Submit" name="Submit" class="btn btn-primary" ng-click="Submit(ViewModel)">Submit</button>
+                <button id="Submit" name="Submit" class="btn btn-primary" ng-click="Submit(Registration)">Submit</button>
             </div>
         </div>
 
-    </fieldset>
+        @if (Model.isDeveloperMachine)
+        {
+            <pre>{{Registration | json}}</pre>
+        }
+    </modelet>
 
 </form>
