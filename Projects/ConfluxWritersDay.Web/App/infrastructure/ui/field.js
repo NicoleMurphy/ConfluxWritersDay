@@ -43,10 +43,10 @@ textfield.directive('field', function ($compile, $http, $templateCache, $interpo
         }
 
         if (attrs.type === 'textarea') {
-            return 'field.textarea';
+            return 'textarea';
         }
 
-        return 'field';
+        return 'input';
     }
 
     function tryRemoveAttribute(element, name) {
