@@ -96,6 +96,7 @@
     <Content Include="App\app.css" />
     <Content Include="App\infrastructure\services\humanizer.js" />
     <Content Include="App\infrastructure\ui\field.js" />
+    <Content Include="App\infrastructure\ui\select.template.html" />
     <Content Include="App\infrastructure\ui\textarea.template.html" />
     <Content Include="App\registration\registration.js" />
     <Content Include="App\infrastructure\ui\input.template.html" />

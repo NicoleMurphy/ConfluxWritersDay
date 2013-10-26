@@ -42,8 +42,10 @@ textfield.directive('field', function ($compile, $http, $templateCache, $interpo
             return template;
         }
 
-        if (attrs.type === 'textarea') {
-            return 'textarea';
+        var type = attrs.type;
+
+        if (type !== undefined && type !== 'email') {
+            return type;
         }
 
         return 'input';
