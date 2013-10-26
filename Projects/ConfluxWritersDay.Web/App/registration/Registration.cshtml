@@ -20,12 +20,12 @@
 
         <field ng-model="Registration.FirstName" required></field>
         <field ng-model="Registration.LastName" required></field>
-        <field ng-model="Registration.Address"></field>
+        <field ng-model="Registration.Address" type="textarea" rows="3" placeholder="Your full address"></field>
         <field ng-model="Registration.EmailAddress" type="email"></field>
         <field ng-model="Registration.TelephoneNumber"></field>
         <field ng-model="Registration.MembershipOrganisation" label="Membership" type="select"></field>
-        <field ng-model="Registration.DietaryRequirements" type="textarea"></field>
-        <field ng-model="Registration.SpecialRequirements" type="textarea"></field>
+        <field ng-model="Registration.DietaryRequirements" type="textarea" rows="4"></field>
+        <field ng-model="Registration.SpecialRequirements" type="textarea" rows="4"></field>
         <field ng-model="Registration.PaymentMethod" type="select"></field>
 
 

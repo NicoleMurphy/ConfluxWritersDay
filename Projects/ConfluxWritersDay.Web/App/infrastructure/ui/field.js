@@ -34,6 +34,21 @@ textfield.directive('field', function ($compile, $http, $templateCache, $interpo
 
     };
 
+    function getTemplate(element, attrs) {
+
+        var template = attrs.template;
+
+        if (template !== undefined) {
+            return template;
+        }
+
+        if (attrs.type === 'textarea') {
+            return 'field.textarea';
+        }
+
+        return 'field';
+    }
+
     function tryRemoveAttribute(element, name) {
 
         var attribute = element.attr(name);
@@ -85,8 +100,7 @@ textfield.directive('field', function ($compile, $http, $templateCache, $interpo
                 });
             }
 
-            var template = attrs.template || 'field';
-
+            var template = getTemplate(element, attrs);
             var getFieldElement = $http.get('/App/infrastructure/ui/' + template + '.template.html', { cache: $templateCache })
 
                 .then(function (response) {
@@ -102,10 +116,16 @@ textfield.directive('field', function ($compile, $http, $templateCache, $interpo
                         inputElement.attr(key, value);
                     });
 
+                    // Add a default placeholder
+                    if (inputElement.attr('placeholder') == undefined) {
+                        inputElement.attr('placeholder', labelContent);
+                    }
+
                     // Update the label's contents
                     var labelElement = newElement.find('label');
                     labelElement.html(labelContent);
 
+                    
                     return newElement;
                 });
 
@@ -130,6 +150,7 @@ textfield.directive('field', function ($compile, $http, $templateCache, $interpo
 
                     inputElement.attr('name', childScope.$modelId);
                     inputElement.attr('id', childScope.$modelId);
+
 
                     newElement.find('label').attr('for', childScope.$modelId);
 

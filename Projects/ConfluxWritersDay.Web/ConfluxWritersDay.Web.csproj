@@ -96,6 +96,7 @@
     <Content Include="App\app.css" />
     <Content Include="App\infrastructure\services\humanizer.js" />
     <Content Include="App\infrastructure\ui\field.js" />
+    <Content Include="App\infrastructure\ui\field.textarea.template.html" />
     <Content Include="App\registration\registration.js" />
     <Content Include="App\infrastructure\ui\field.template.html" />
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
