@@ -25,7 +25,7 @@
             <validator key="email">A valid email address is required.</validator>
         </field>
         <field ng-model="Registration.TelephoneNumber"></field>
-        <field ng-model="Registration.MembershipOrganisation" label="Membership" type="select"></field>
+        <field ng-model="Registration.MembershipOrganisation" label="Membership" type="select" ng-options="m.id as m.name for m in MembershipOrganisations"></field>
         <field ng-model="Registration.DietaryRequirements" type="textarea" rows="4"></field>
         <field ng-model="Registration.SpecialRequirements" type="textarea" rows="4"></field>
         <field ng-model="Registration.PaymentMethod" type="select"></field>
