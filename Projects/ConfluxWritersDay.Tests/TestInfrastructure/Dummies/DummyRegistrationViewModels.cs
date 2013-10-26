@@ -24,16 +24,13 @@ namespace ConfluxWritersDay.Tests.TestInfrastructure.Dummies
         private static RegistrationViewModel Deserialize(string line, KeyValuePair<string, string>[] membershipOrganisations, KeyValuePair<string, string>[] paymentMethods)
         {
             var fields = line.Split(new char[] { '\t' });
+            var addressLine2 = RandomNumber.NextInt(0, 2) == 0 ? fields[3] + "\n" : null;
 
             return new RegistrationViewModel()
             {
                 FirstName = fields[0],
                 LastName = fields[1],
-                AddressLine1 = fields[2],
-                AddressLine2 = RandomNumber.NextInt(0, 2) == 0 ? fields[3] : null,
-                Suburb = fields[4],
-                State = fields[5],
-                Postcode = fields[6],
+                Address = string.Format("{0}{1}\n{2} {3} {4}", fields[2], addressLine2, fields[4], fields[5], fields[6]),
                 EmailAddress = fields[7],
                 TelephoneNumber = fields[8],
                 MembershipOrganisation = membershipOrganisations[RandomNumber.NextInt(0, membershipOrganisations.Length)].Key,
@@ -55,7 +52,7 @@ namespace ConfluxWritersDay.Tests.TestInfrastructure.Dummies
 
             if (File.Exists(fullPath) == false)
             {
-                throw new DirectoryNotFoundException(string.Format("Cannot find dummies file '{0}'.", fullPath));                               
+                throw new DirectoryNotFoundException(string.Format("Cannot find dummies file '{0}'.", fullPath));
             }
 
             return fullPath;
@@ -68,7 +65,7 @@ namespace ConfluxWritersDay.Tests.TestInfrastructure.Dummies
 
             if (Directory.Exists(dummiesFolder) == false)
             {
-                throw new DirectoryNotFoundException(string.Format("Cannot find dummies folder '{0}'.", dummiesFolder));               
+                throw new DirectoryNotFoundException(string.Format("Cannot find dummies folder '{0}'.", dummiesFolder));
             }
 
             return dummiesFolder;

@@ -83,28 +83,18 @@ namespace ConfluxWritersDay.Tests.ViewModels.Home
         }
 
         [TestClass]
-        public class AddressLine1
+        public class Address
         {
-        }
+            [TestMethod]
+            public void todo()
+            {
+                // Given
 
-        [TestClass]
-        public class AddressLine2
-        {
-        }
+                // When
 
-        [TestClass]
-        public class Suburb
-        {
-        }
-
-        [TestClass]
-        public class State
-        {
-        }
-
-        [TestClass]
-        public class Postcode
-        {
+                // Then
+                Assert.Inconclusive("todo");
+            }
         }
 
         [TestClass]

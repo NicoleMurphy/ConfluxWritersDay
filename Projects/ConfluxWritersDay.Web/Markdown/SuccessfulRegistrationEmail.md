@@ -18,9 +18,7 @@ Kind Regards
 ## Registration Itinerary
 
 {FirstName} {LastName}<br />
-{AddressLine1}<br />
-{AddressLine1}<br />
-{City} {State} {Postcode}
+{Address}<br />
 
 Registration type: {RegistrationType}
 {IfDietaryRequirements}

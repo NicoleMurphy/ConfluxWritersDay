@@ -46,10 +46,7 @@ namespace ConfluxWritersDay.Tests.Specifications
             s["Given I am on the registration page"] = p => this.NavigateToRegistrationPage();
             s["And my first name is 'Tim'"] = p => this.ViewModel.FirstName = p[0];
             s["And my last name is 'Murphy'"] = p => this.ViewModel.LastName = p[0];
-            s["And my address line 1 is '32 Black Street'"] = p => this.ViewModel.AddressLine1 = p[0];
-            s["And my suburb is 'Under'"] = p => this.ViewModel.Suburb = p[0];
-            s["And my state is 'Belly'"] = p => this.ViewModel.State = p[0];
-            s["And my postcode is '666'"] = p => this.ViewModel.Postcode = p[0];
+            s["And my address line 1 is '32 Black Street\nUnder Belly VIC 666'"] = p => this.ViewModel.Address = p[0];
             s["And my telephone number is '(02) 6232 2304'"] = p => this.ViewModel.TelephoneNumber = p[0];
             s["And my email address is 'tim@example.com'"] = p => this.ViewModel.EmailAddress = p[0];
             s["And entered dietary requirements 'Meat'"] = p => this.ViewModel.DietaryRequirements = p[0];

@@ -1,14 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using DataAnnotationsExtensions;
+using NullGuard;
 
 namespace ConfluxWritersDay.Web.Models
 {
+    [NullGuard(ValidationFlags.Methods | ValidationFlags.Arguments | ValidationFlags.OutValues | ValidationFlags.ReturnValues)]
     public class Registration
     {
         public Registration()
-        {
-            throw new System.NotImplementedException();
-        }
+        { }
 
         [Required]
         public string FirstName { get; set; }
@@ -16,21 +16,22 @@ namespace ConfluxWritersDay.Web.Models
         [Required]
         public string LastName { get; set; }
 
-        public string AddressLine1 { get; set; }
-        public string AddressLine2 { get; set; }
-        public string Suburb { get; set; }
-        public string State { get; set; }
-        public string Postcode { get; set; }
+        [DataType(DataType.MultilineText)]
+        public string Address { get; set; }
 
         [Required, Email]
         public string EmailAddress { get; set; }
 
+        [DataType(DataType.PhoneNumber)]
         public string TelephoneNumber { get; set; }
 
         [Required, MembershipOrganisation]
         public string MembershipOrganisation { get; set; }
 
+        [DataType(DataType.MultilineText)]
         public string DietaryRequirements { get; set; }
+
+        [DataType(DataType.MultilineText)]
         public string SpecialRequirements { get; set; }
 
         [Required, PaymentMethod]
