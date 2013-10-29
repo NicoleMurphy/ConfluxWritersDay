@@ -1,10 +1,8 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using ConfluxWritersDay.Web.Repositories;
 using Nancy;
 using Nancy.Conventions;
 using Nancy.TinyIoc;
-using Nancy.Validation.DataAnnotations;
 
 namespace ConfluxWritersDay.Web
 {
@@ -13,6 +11,11 @@ namespace ConfluxWritersDay.Web
         protected override void ApplicationStartup(TinyIoCContainer container, Nancy.Bootstrapper.IPipelines pipelines)
         {
             base.ApplicationStartup(container, pipelines);
+
+            this.Conventions.ViewLocationConventions.Add((viewName, model, context) =>
+            {
+                return string.Format("App/{0}/{0}", viewName);
+            });
         }
 
         protected override void ConfigureConventions(NancyConventions conventions)
@@ -20,6 +23,7 @@ namespace ConfluxWritersDay.Web
             base.ConfigureConventions(conventions);
 
             conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("Scripts"));
+            conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("App"));
         }
 
         protected override void ConfigureApplicationContainer(TinyIoCContainer container)

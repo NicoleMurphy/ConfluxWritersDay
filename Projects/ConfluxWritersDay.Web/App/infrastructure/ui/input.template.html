@@ -1,0 +1,7 @@
+﻿<div class="form-group" ng-class="{'has-error' : $field.$invalid && $field.$dirty}">
+    <label class ="col-lg-2 control-label">{{label}}</label>
+    <div class="col-lg-10" ng-class="{'has-success' : $field.$valid && $field.$dirty}">
+        <input class="form-control">
+        <span ng-repeat="(key, error) in $field.$error" ng-show="error && $field.$dirty" class="control-label">{{$validationMessages[key]}}</span>
+    </div>
+</div>

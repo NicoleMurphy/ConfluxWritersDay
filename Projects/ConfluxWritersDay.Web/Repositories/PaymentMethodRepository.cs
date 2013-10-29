@@ -4,12 +4,6 @@ namespace ConfluxWritersDay.Web.Repositories
 {
     public class PaymentMethodRepository : ConfluxWritersDay.Web.Repositories.IPaymentMethodRepository
     {
-        private static KeyValuePair<string, string>[] PaymentMethods = 
-        { 
-            new KeyValuePair<string, string>("Cheque", "Cheque"), 
-            new KeyValuePair<string, string>("PayPal", "PayPal"),
-            new KeyValuePair<string, string>("DirectDeposit", "Direct Deposit")
-        };
 
         public PaymentMethodRepository()
         {
@@ -17,7 +11,12 @@ namespace ConfluxWritersDay.Web.Repositories
 
         public IEnumerable<KeyValuePair<string, string>> GetAll()
         {
-            return PaymentMethods;
+            return new KeyValuePair<string, string>[]             
+            { 
+                new KeyValuePair<string, string>("Cheque", "Cheque"), 
+                new KeyValuePair<string, string>("PayPal", "PayPal"),
+                new KeyValuePair<string, string>("DirectDeposit", "Direct Deposit")
+            };
         }
     }
 }

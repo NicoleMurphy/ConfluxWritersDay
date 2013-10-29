@@ -1,23 +1,42 @@
-﻿using BddMagic;
-using ConfluxWritersDay.Tests.Fakes.ViewModels.Home;
-using ConfluxWritersDay.Tests.Seleno;
-using ConfluxWritersDay.Tests.Seleno.PageObjects;
+﻿using System;
+using System.Linq.Expressions;
+using ConfluxWritersDay.Tests.TestInfrastructure;
+using ConfluxWritersDay.Tests.TestInfrastructure.Seleno;
+using ConfluxWritersDay.Tests.TestInfrastructure.Seleno.PageObjects;
+using ConfluxWritersDay.Web.ViewModels.Home;
+using FakeItEasy;
+using FluentAssertions;
+using Humanizer;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenMagic.DataAnnotations;
+using OpenQA.Selenium;
 
 namespace ConfluxWritersDay.Tests.Specifications
 {
     [TestClass]
-    public class RegistrationSpecifications : BddFeature
+    public class RegistrationSpecifications : BaseBddFeature
     {
         private RegistrationPage Page;
-        private FakeRegistrationViewModel ViewModel = new FakeRegistrationViewModel();
+        private RegistrationViewModel ViewModel;
 
         public RegistrationSpecifications()
             : base("Registration Page", "todo: story")
         {
+            this.NewTest();
         }
 
-        [TestMethod]
+        private void NewTest()
+        {
+            this.ViewModel = A.Dummy<RegistrationViewModel>();
+        }
+
+        [TestMethod, TestCategory("/registration")]
+        public void WhenJavaScriptIsNotEnabled()
+        {
+            Assert.Inconclusive("todo");
+        }
+
+        [TestMethod, TestCategory("/registration")]
         public void RegistrationDetails()
         {
             Assert.Inconclusive("todo");
@@ -27,39 +46,44 @@ namespace ConfluxWritersDay.Tests.Specifications
             s["Given I am on the registration page"] = p => this.NavigateToRegistrationPage();
             s["And my first name is 'Tim'"] = p => this.ViewModel.FirstName = p[0];
             s["And my last name is 'Murphy'"] = p => this.ViewModel.LastName = p[0];
-            s["And my address line 1 is '32 Black Street'"] = p => this.ViewModel.AddressLine1 = p[0];
-            s["And my suburb is 'Under'"] = p => this.ViewModel.Suburb = p[0];
-            s["And my state is 'Belly'"] = p => this.ViewModel.State = p[0];
-            s["And my postcode is '666'"] = p => this.ViewModel.Postcode = p[0];
+            s["And my address line 1 is '32 Black Street\nUnder Belly VIC 666'"] = p => this.ViewModel.Address = p[0];
             s["And my telephone number is '(02) 6232 2304'"] = p => this.ViewModel.TelephoneNumber = p[0];
             s["And my email address is 'tim@example.com'"] = p => this.ViewModel.EmailAddress = p[0];
             s["And entered dietary requirements 'Meat'"] = p => this.ViewModel.DietaryRequirements = p[0];
             s["And entered special requirements 'Wheelchair access'"] = p => this.ViewModel.SpecialRequirements = p[0];
             s["And selected payment method of 'Cheque'"] = p => this.ViewModel.PaymentMethod = p[0];
             s["And selected membership organisation of 'Conflux9'"] = p => this.ViewModel.MembershipOrganisation = p[0];
-            s["When I submit my registration"] = p => this.Page.Submit(this.ViewModel);
+            s["When I submit my registration"] = p => this.Page.FillForm(this.ViewModel).Submit();
             s["Then I will see thank you page"] = null;
             s["And I will receive an email"] = null;
 
             s.Execute();
         }
 
-        [TestMethod]
+        [TestCategory("... Under Development ...")]
+        [TestMethod, TestCategory("/registration")]
         public void FirstNameIsRequired()
         {
-            Assert.Inconclusive("todo");
+            this.RequiredField(r => r.FirstName);
+        }
 
-            var s = this.Scenario("First name is required");
+        [TestMethod, TestCategory("/registration")]
+        public void WhenFirstNameIsBlankAndFieldIsExited()
+        {
+            var s = this.Scenario();
 
             s["Given I am on the registration page"] = null;
-            s["And I have not entered my first name"] = null;
-            s["When I submit my registration"] = null;
+            s["And I have entered the first name field"] = null;
+            s["And I have left first name field empty"] = null;
+            s["When I exit the first name field"] = null;
             s["Then I will see warning message that first name is required"] = null;
 
             s.Execute();
+
+            Assert.Inconclusive("todo: the opposite to this");
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("/registration")]
         public void LastNameIsRequired()
         {
             Assert.Inconclusive("todo");
@@ -74,7 +98,7 @@ namespace ConfluxWritersDay.Tests.Specifications
             s.Execute();
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("/registration")]
         public void EmailAddressIsRequired()
         {
             Assert.Inconclusive("todo");
@@ -89,7 +113,7 @@ namespace ConfluxWritersDay.Tests.Specifications
             s.Execute();
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("/registration")]
         public void MembershipOrganisation()
         {
             Assert.Inconclusive("todo");
@@ -103,7 +127,7 @@ namespace ConfluxWritersDay.Tests.Specifications
             s.Execute();
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("/registration")]
         public void NoMembershipOrganisation()
         {
             Assert.Inconclusive("todo");
@@ -117,7 +141,7 @@ namespace ConfluxWritersDay.Tests.Specifications
             s.Execute();
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("/registration")]
         public void First30Registrations()
         {
             Assert.Inconclusive("todo");
@@ -131,7 +155,7 @@ namespace ConfluxWritersDay.Tests.Specifications
             s.Execute();
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("/registration")]
         public void ThirtyFirstOrGreaterRegistration()
         {
             Assert.Inconclusive("todo");
@@ -147,7 +171,7 @@ namespace ConfluxWritersDay.Tests.Specifications
             s.Execute();
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("/registration")]
         public void PaymentByDirectDeposit()
         {
             Assert.Inconclusive("todo");
@@ -162,7 +186,7 @@ namespace ConfluxWritersDay.Tests.Specifications
             s.Execute();
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("/registration")]
         public void PaymentByPayPal()
         {
             Assert.Inconclusive("todo");
@@ -177,7 +201,7 @@ namespace ConfluxWritersDay.Tests.Specifications
             s.Execute();
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("/registration")]
         public void PaymentByCheque()
         {
             Assert.Inconclusive("todo");
@@ -192,10 +216,117 @@ namespace ConfluxWritersDay.Tests.Specifications
             s.Execute();
         }
 
+        private string GetLabel(IPropertyMetadata metadata)
+        {
+            var name = metadata.Display.GetName();
+
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                name = metadata.PropertyInfo.Name.Dehumanize();
+            }
+
+            return name;
+        }
+
+        private string GetHumanFieldName(IPropertyMetadata metadata)
+        {
+            return this.GetLabel(metadata).ToLower();
+        }
+
+        private string GetPropertyId(IPropertyMetadata metadata)
+        {
+            return metadata.PropertyInfo.Name;
+        }
+
+        private IWebElement GetRequiredValidationMesssage(IPropertyMetadata metadata)
+        {
+            var elementId = (metadata.PropertyInfo.Name + "-required-validation-message").ToHtmlNamingConvention();
+            var element = this.Page.Find.Element(By.Id(elementId));
+
+            return element;
+        }
+
         private void NavigateToRegistrationPage()
         {
             this.Page = Host.Instance.NavigateToInitialPage<RegistrationPage>(RegistrationPage.Url);
         }
 
+        private void RequiredField(Expression<Func<RegistrationViewModel, object>> property)
+        {
+            var metadata = ClassMetadata<RegistrationViewModel>.GetProperty(property);
+
+            this.WhenRequiredFieldIsBlankAndSubmitButtonIsClicked(metadata);
+            this.WhenRequiredFieldIsNotBlankAndSubmitButtonIsClicked(metadata);
+            this.WhenRequiredFieldIsNotBlankAndExited(metadata);
+            this.WhenRequiredFieldIsBlankAndExited(metadata);
+        }
+
+        private void WhenRequiredFieldIsBlankAndSubmitButtonIsClicked(IPropertyMetadata metadata)
+        {
+            this.NewTest();
+
+            var propertyId = this.GetPropertyId(metadata);
+            var humanFieldName = this.GetHumanFieldName(metadata);
+            var s = this.Scenario();
+
+            s[string.Format("Given I am on the registration page")] = p => this.NavigateToRegistrationPage();
+            s[string.Format("And I have not entered my {0}", humanFieldName)] = p => this.Page.SetElement(metadata, null);
+            s[string.Format("When I submit my registration")] = p => this.Page.Submit();
+            s[string.Format("Then I will see validation message that {0} is required", humanFieldName)] = p => this.GetRequiredValidationMesssage(metadata).Displayed.Should().BeTrue();
+
+            s.Execute();
+        }
+
+        private void WhenRequiredFieldIsNotBlankAndSubmitButtonIsClicked(IPropertyMetadata metadata)
+        {
+            this.NewTest();
+
+            var propertyId = this.GetPropertyId(metadata);
+            var humanFieldName = this.GetHumanFieldName(metadata);
+            var value = metadata.PropertyInfo.GetValue(this.ViewModel, null);
+            var s = this.Scenario();
+
+            s[string.Format("Given I am on the registration page")] = p => this.NavigateToRegistrationPage();
+            s[string.Format("And I have entered my {0}", humanFieldName)] = p => this.Page.SetElement(metadata, value);
+            s[string.Format("When I submit my registration")] = p => this.Page.Submit();
+            s[string.Format("Then I will not see required validation message for my {0}", humanFieldName)] = p => this.GetRequiredValidationMesssage(metadata).Displayed.Should().BeFalse();
+
+            s.Execute();
+        }
+
+        private void WhenRequiredFieldIsBlankAndExited(IPropertyMetadata metadata)
+        {
+            this.NewTest();
+
+            IWebElement element = null;
+            var propertyId = this.GetPropertyId(metadata);
+            var humanFieldName = this.GetHumanFieldName(metadata);
+            var s = this.Scenario();
+
+            s[string.Format("Given I am on the registration page")] = p => { this.NavigateToRegistrationPage(); element = this.Page.GetElement(metadata); };
+            s[string.Format("And I have not entered my {0}", humanFieldName)] = p => element.Click();
+            s[string.Format("When I exit the control")] = p => element.SendKeys("\t");
+            s[string.Format("Then I will see validation message that {0} is required", humanFieldName)] = p => this.GetRequiredValidationMesssage(metadata).Displayed.Should().BeTrue();
+
+            s.Execute();
+        }
+
+        private void WhenRequiredFieldIsNotBlankAndExited(IPropertyMetadata metadata)
+        {
+            this.NewTest();
+
+            IWebElement element = null;
+            var propertyId = this.GetPropertyId(metadata);
+            var humanFieldName = this.GetHumanFieldName(metadata);
+            var value = metadata.PropertyInfo.GetValue(this.ViewModel, null);
+            var s = this.Scenario();
+
+            s[string.Format("Given I am on the registration page")] = p => { this.NavigateToRegistrationPage(); element = this.Page.GetElement(metadata); };
+            s[string.Format("And I have not entered my {0}", humanFieldName)] = p => { element.Click(); element.SendKeys(value.ToString()); };
+            s[string.Format("When I exit the control")] = p => element.SendKeys("\t");
+            s[string.Format("Then I will see validation message that {0} is required", humanFieldName)] = p => this.GetRequiredValidationMesssage(metadata).Displayed.Should().BeFalse();
+
+            s.Execute();
+        }
     }
 }
