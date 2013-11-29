@@ -1,11 +1,9 @@
 ﻿using System;
 using FakeItEasy;
-using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nancy.ViewEngines;
 using Nancy.ViewEngines.Razor;
 using NancyMagic;
-using Nancy.Helpers;
 using TestMagic;
 
 namespace ConfluxWritersDay.Tests.NancyMagic
