@@ -1,0 +1,81 @@
+﻿Feature: Registration
+
+Scenario: Register Online
+	Given I am choosing to register online
+	When I navigate to this page
+	Then I want the process to be quick and easy
+	And I want it clearly explained
+	And I want multiple options for payment
+	And I want an automatic email confirming that my registration has gone through
+
+Scenario: Registration Details!!
+	Given I am on the registration page
+	And my first name is entered
+	And my last name is entered
+	And my address is entered
+	And my phone is entered
+	And my email address is entered
+	And entered special dietary requirements
+	And selected payment method of Cheque, PayPal or Direct Deposit
+	And selected a member organisation of Conflux 9 Member, CSFG Member, ACT Writers Centre Member or Non-Member
+	When I submit my registration
+	Then I will see thank you page
+	And I will receive an email
+
+Scenario: First name is required
+	Given I am on the registration page
+	And I have not entered my first name
+	When I submit my registration
+	Then I will see warning message that first name is required
+
+Scenario: Last name is required
+	Given I am on the registration page
+	And I have not entered my email address
+	When I submit my registration
+	Then I will see warning message that email address is required
+
+Scenario: Email address is required
+	Given I am on the registration page
+	And I have not entered my first name
+	When I submit my registration
+	Then I will see warning message that first name is required
+
+Scenario: Is a member
+	Given I am on the registration page
+	When I am a member
+	Then the price is '$120.00'
+
+Scenario: Is not a member
+	Given I am on the registration page
+	When I am not a member
+	Then the price is '$150.00'
+
+Scenario: First 30 registration
+	Given I am on the registration page
+	When I am one of the first 30 registrations
+	Then the price is '$90.00'
+
+Scenario: 31+ registration
+	Given I am on the registration page
+	And I was 30th to start registration
+	And someone else typed quicker than me
+	When I hit submit
+	Then I am told I missed out
+
+Scenario: direct deposit
+	Given I have completed registration 
+	And the payment method is direct deposit payment
+	When I am sent an email
+	Then I the direct deposit invoice is attached
+
+Scenario: paypal
+	Given I have completed registration 
+	And the payment method is Paypal payment
+	When I am sent an email
+	Then I the paypal invoice is attached
+
+Scenario: cheque
+	Given I have completed registration 
+	And the payment method is cheque payment
+	When I am sent an email
+	Then I the cheque invoice is attached
