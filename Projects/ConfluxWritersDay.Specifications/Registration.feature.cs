@@ -93,11 +93,11 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Registration Details!!")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Registration Details")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Registration")]
         public virtual void RegistrationDetails()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Registration Details!!", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Registration Details", ((string[])(null)));
 #line 11
 this.ScenarioSetup(scenarioInfo);
 #line 12
@@ -114,16 +114,33 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.And("my email address is entered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 18
  testRunner.And("entered special dietary requirements", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Payment Method"});
+            table1.AddRow(new string[] {
+                        "Cheque"});
+            table1.AddRow(new string[] {
+                        "PayPal"});
+            table1.AddRow(new string[] {
+                        "Direct Deposit"});
 #line 19
- testRunner.And("selected payment method of Cheque, PayPal or Direct Deposit", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 20
- testRunner.And("selected a member organisation of Conflux 9 Member, CSFG Member, ACT Writers Cent" +
-                    "re Member or Non-Member", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 21
+ testRunner.And("selected a", ((string)(null)), table1, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Member Organisation"});
+            table2.AddRow(new string[] {
+                        "Conflux 9 Member"});
+            table2.AddRow(new string[] {
+                        "CSFG Member"});
+            table2.AddRow(new string[] {
+                        "ACT Writers Centre Member"});
+#line 24
+ testRunner.And("selected a", ((string)(null)), table2, "And ");
+#line 29
  testRunner.When("I submit my registration", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 22
+#line 30
  testRunner.Then("I will see thank you page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 23
+#line 31
  testRunner.And("I will receive an email", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -135,15 +152,15 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void FirstNameIsRequired()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("First name is required", ((string[])(null)));
-#line 25
+#line 33
 this.ScenarioSetup(scenarioInfo);
-#line 26
+#line 34
  testRunner.Given("I am on the registration page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 27
+#line 35
  testRunner.And("I have not entered my first name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 28
+#line 36
  testRunner.When("I submit my registration", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 29
+#line 37
  testRunner.Then("I will see warning message that first name is required", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -155,15 +172,15 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void LastNameIsRequired()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Last name is required", ((string[])(null)));
-#line 31
+#line 39
 this.ScenarioSetup(scenarioInfo);
-#line 32
+#line 40
  testRunner.Given("I am on the registration page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 33
+#line 41
  testRunner.And("I have not entered my email address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 34
+#line 42
  testRunner.When("I submit my registration", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 35
+#line 43
  testRunner.Then("I will see warning message that email address is required", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -175,15 +192,15 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void EmailAddressIsRequired()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Email address is required", ((string[])(null)));
-#line 37
+#line 45
 this.ScenarioSetup(scenarioInfo);
-#line 38
+#line 46
  testRunner.Given("I am on the registration page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 39
+#line 47
  testRunner.And("I have not entered my first name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 40
+#line 48
  testRunner.When("I submit my registration", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 41
+#line 49
  testRunner.Then("I will see warning message that first name is required", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -195,13 +212,13 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void IsAMember()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Is a member", ((string[])(null)));
-#line 43
+#line 51
 this.ScenarioSetup(scenarioInfo);
-#line 44
+#line 52
  testRunner.Given("I am on the registration page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 45
+#line 53
  testRunner.When("I am a member", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 46
+#line 54
  testRunner.Then("the price is \'$120.00\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -213,13 +230,13 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void IsNotAMember()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Is not a member", ((string[])(null)));
-#line 48
+#line 56
 this.ScenarioSetup(scenarioInfo);
-#line 49
+#line 57
  testRunner.Given("I am on the registration page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 50
+#line 58
  testRunner.When("I am not a member", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 51
+#line 59
  testRunner.Then("the price is \'$150.00\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -231,13 +248,13 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void First30Registration()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("First 30 registration", ((string[])(null)));
-#line 53
+#line 61
 this.ScenarioSetup(scenarioInfo);
-#line 54
+#line 62
  testRunner.Given("I am on the registration page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 55
+#line 63
  testRunner.When("I am one of the first 30 registrations", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 56
+#line 64
  testRunner.Then("the price is \'$90.00\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -249,17 +266,17 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void _31Registration()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("31+ registration", ((string[])(null)));
-#line 58
+#line 66
 this.ScenarioSetup(scenarioInfo);
-#line 59
+#line 67
  testRunner.Given("I am on the registration page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 60
+#line 68
  testRunner.And("I was 30th to start registration", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 61
+#line 69
  testRunner.And("someone else typed quicker than me", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 62
+#line 70
  testRunner.When("I hit submit", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 63
+#line 71
  testRunner.Then("I am told I missed out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -271,15 +288,15 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void DirectDeposit()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("direct deposit", ((string[])(null)));
-#line 65
+#line 73
 this.ScenarioSetup(scenarioInfo);
-#line 66
+#line 74
  testRunner.Given("I have completed registration", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 67
+#line 75
  testRunner.And("the payment method is direct deposit payment", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 68
+#line 76
  testRunner.When("I am sent an email", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 69
+#line 77
  testRunner.Then("I the direct deposit invoice is attached", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -291,15 +308,15 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void Paypal()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("paypal", ((string[])(null)));
-#line 71
+#line 79
 this.ScenarioSetup(scenarioInfo);
-#line 72
+#line 80
  testRunner.Given("I have completed registration", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 73
+#line 81
  testRunner.And("the payment method is Paypal payment", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 74
+#line 82
  testRunner.When("I am sent an email", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 75
+#line 83
  testRunner.Then("I the paypal invoice is attached", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -311,15 +328,15 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void Cheque()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("cheque", ((string[])(null)));
-#line 77
+#line 85
 this.ScenarioSetup(scenarioInfo);
-#line 78
+#line 86
  testRunner.Given("I have completed registration", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 79
+#line 87
  testRunner.And("the payment method is cheque payment", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 80
+#line 88
  testRunner.When("I am sent an email", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 81
+#line 89
  testRunner.Then("I the cheque invoice is attached", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

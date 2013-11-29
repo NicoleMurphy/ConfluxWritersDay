@@ -8,7 +8,7 @@ Scenario: Register Online
 	And I want multiple options for payment
 	And I want an automatic email confirming that my registration has gone through
 
-Scenario: Registration Details!!
+Scenario: Registration Details
 	Given I am on the registration page
 	And my first name is entered
 	And my last name is entered
@@ -16,8 +16,16 @@ Scenario: Registration Details!!
 	And my phone is entered
 	And my email address is entered
 	And entered special dietary requirements
-	And selected payment method of Cheque, PayPal or Direct Deposit
-	And selected a member organisation of Conflux 9 Member, CSFG Member, ACT Writers Centre Member or Non-Member
+	And selected a 
+		| Payment Method |
+		| Cheque         |
+		| PayPal         |
+		| Direct Deposit |
+	And selected a
+		| Member Organisation       |
+		| Conflux 9 Member          |
+		| CSFG Member               |
+		| ACT Writers Centre Member |
 	When I submit my registration
 	Then I will see thank you page
 	And I will receive an email
