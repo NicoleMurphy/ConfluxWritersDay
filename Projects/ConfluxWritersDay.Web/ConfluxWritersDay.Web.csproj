@@ -21,7 +21,7 @@
     <IISExpressUseClassicPipelineMode />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
-    <FodyPath>..\..\packages\Fody.1.17.4.0</FodyPath>
+    <FodyPath>..\..\packages\Fody.1.18.0.0</FodyPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -69,7 +69,7 @@
       <HintPath>..\..\packages\Nancy.Viewengines.Razor.0.21.1\lib\net40\Nancy.ViewEngines.Razor.dll</HintPath>
     </Reference>
     <Reference Include="NullGuard">
-      <HintPath>..\..\packages\NullGuard.Fody.0.7.2.0\Lib\portable-net4+sl4+wp7+win8+MonoAndroid16+MonoTouch40\NullGuard.dll</HintPath>
+      <HintPath>..\..\packages\NullGuard.Fody.1.0.0.0\Lib\portable-net4+sl4+wp7+win8+MonoAndroid16+MonoTouch40\NullGuard.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="OpenMagic, Version=0.1.28.0, Culture=neutral, processorArchitecture=MSIL">
@@ -423,6 +423,7 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Fody.targets" />
     <None Include="Scripts\_references.js" />
     <Content Include="Views\Shared\PageLayout.cshtml" />
     <Content Include="Web.config">
@@ -452,7 +453,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Markdown.cshtml" />
-    <Content Include="Packages.config" />
+    <Content Include="Packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Markdown\Home.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -474,7 +477,6 @@
     <Content Include="Markdown\Invoice-DirectDeposit.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Fody.targets" />
     <None Include="NancyMagic\README.md" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular-touch.min.js.map" />
