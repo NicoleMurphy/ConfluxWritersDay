@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using ConfluxWritersDay.Specifications.Pages;
+using ConfluxWritersDay.Specifications.Website;
 using TechTalk.SpecFlow;
 
 namespace ConfluxWritersDay.Specifications.Steps.Registration
@@ -6,16 +7,19 @@ namespace ConfluxWritersDay.Specifications.Steps.Registration
     [Binding]
     public class RegistrationDetails
     {
+        private string FirstName;
+
         [Given(@"I am on the registration page")]
         public void GivenIAmOnTheRegistrationPage()
         {
-            ScenarioContext.Current.Pending();
+            Browser.NavigateTo("/registration");
         }
         
         [Given(@"my first name is entered")]
         public void GivenMyFirstNameIsEntered()
         {
-            ScenarioContext.Current.Pending();
+            FirstName = "Tim";
+            RegistrationPage.FirstName.SetValue(FirstName);
         }
         
         [Given(@"my last name is entered")]
