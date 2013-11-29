@@ -1,5 +1,4 @@
 ﻿using TestStack.Seleno.Configuration;
-using TestStack.Seleno.Configuration.WebServers;
 
 namespace ConfluxWritersDay.Tests.TestInfrastructure.Seleno
 {
