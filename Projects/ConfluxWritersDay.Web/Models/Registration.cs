@@ -7,9 +7,6 @@ namespace ConfluxWritersDay.Web.Models
     [NullGuard(ValidationFlags.Methods | ValidationFlags.Arguments | ValidationFlags.OutValues | ValidationFlags.ReturnValues)]
     public class Registration
     {
-        public Registration()
-        { }
-
         [Required]
         public string FirstName { get; set; }
 

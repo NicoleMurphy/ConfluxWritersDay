@@ -15,19 +15,20 @@ Scenario: Registration Details
 	And my first name is entered
 	And my last name is entered
 	And my address is entered
-	And my phone is entered
+	And my telephone number is entered
 	And my email address is entered
-	And entered special dietary requirements
-	And selected a 
-		| Payment Method |
-		| Cheque         |
-		| PayPal         |
-		| Direct Deposit |
-	And selected a
-		| Member Organisation       |
-		| Conflux 9 Member          |
-		| CSFG Member               |
-		| ACT Writers Centre Member |
+	And my dietary requirements are entered
+	And my special requirements are entered
+	And I have selected a payment method:
+		| Id            | Value          |
+		| Cheque        | Cheque         |
+		| PayPal        | PayPal         |
+		| DirectDeposit | Direct Deposit |
+	And I have selected a membership organisation:
+		| Id               | Value                     |
+		| Conflux9         | Conflux 9 Member          |
+		| CSFG             | CSFG Member               |
+		| ACTWritersCentre | ACT Writers Centre Member |
 	When I submit my registration
 	Then I will see thank you page
 	And I will receive an email

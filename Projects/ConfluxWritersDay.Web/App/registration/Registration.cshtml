@@ -15,9 +15,6 @@
         
         <legend>Registration</legend>
 
-        @*<input type="text"  ng-model="Registration.FirstName"   placeholder="First Name"    class="input-xlarge" required>
-        <input type="text"  ng-model="Registration.LastName"    placeholder="Last Name"     class="input-xlarge" required>*@
-
         <field ng-model="Registration.FirstName" required></field>
         <field ng-model="Registration.LastName" required></field>
         <field ng-model="Registration.Address" type="textarea" rows="3" placeholder="Your full address"></field>
@@ -28,7 +25,7 @@
         <field ng-model="Registration.MembershipOrganisation" label="Membership" type="select" ng-options="m.id as m.name for m in MembershipOrganisations"></field>
         <field ng-model="Registration.DietaryRequirements" type="textarea" rows="4"></field>
         <field ng-model="Registration.SpecialRequirements" type="textarea" rows="4"></field>
-        <field ng-model="Registration.PaymentMethod" type="select"></field>
+        <field ng-model="Registration.PaymentMethod" label="Payment Method" type="select" ng-options="m.id as m.name for m in PaymentMethods"></field>
 
 
         <div class="control-group">

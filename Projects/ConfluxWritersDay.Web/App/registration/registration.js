@@ -11,22 +11,43 @@ app.controller('RegistrationController', function ($scope) {
         MembershipOrganisation: ''
     };
 
+    // todo: get from repository
     $scope.MembershipOrganisations = [
         {
             'id': '',
-            'name': ""
+            'name': 'none'
         },
         {
-            'id': '10005',
-            'name': "Blort"
+            'id': 'Conflux9',
+            'name': "Conflux 9 Member"
         },
         {
-            'id': '10006',
-            'name': "Two"
+            'id': 'CSFG',
+            'name': "CSFG Member"
         },
         {
-            'id': '10007',
-            'name': "Three"
+            'id': 'ACTWritersCentre',
+            'name': "ACT Writers Centre Member"
+        }
+    ];
+
+    // todo: get from repository
+    $scope.PaymentMethods = [
+        {
+            'id': '',
+            'name': ''
+        },
+        {
+            'id': 'Cheque',
+            'name': "Cheque"
+        },
+        {
+            'id': 'PayPal',
+            'name': 'PayPal'
+        },
+        {
+            'id': 'DirectDeposit',
+            'name': 'Direct Deposit'
         }
     ];
 

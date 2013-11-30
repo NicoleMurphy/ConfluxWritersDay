@@ -35,7 +35,13 @@
     <Reference Include="Common.Logging">
       <HintPath>..\..\packages\Common.Logging.2.1.2\lib\net40\Common.Logging.dll</HintPath>
     </Reference>
+    <Reference Include="Common.Logging.NLog20">
+      <HintPath>..\..\packages\Common.Logging.NLog20.2.1.2\lib\net40\Common.Logging.NLog20.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="NLog">
+      <HintPath>..\..\packages\NLog.2.1.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="OpenMagic">
       <HintPath>..\..\packages\OpenMagic.0.1.28.0\lib\net40\OpenMagic.dll</HintPath>
     </Reference>
@@ -59,6 +65,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\IEnumerableExtensions.cs" />
+    <Compile Include="Infrastructure\Logging\ILogger.cs" />
+    <Compile Include="Infrastructure\Logging\Logger.cs" />
+    <Compile Include="Infrastructure\MemberInfoExtensions.cs" />
+    <Compile Include="Infrastructure\KeyValueStringPair.cs" />
+    <Compile Include="Website\WebElements\SelectBox.cs" />
+    <Compile Include="Website\WebElements\EmailTextBox.cs" />
+    <Compile Include="Website\WebElements\MultilineTextBox.cs" />
+    <Compile Include="Pages\Page.cs" />
     <Compile Include="Website\Application.cs" />
     <Compile Include="Website\Browser.cs" />
     <Compile Include="Pages\RegistrationPage.cs" />
@@ -68,8 +83,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Registration.feature</DependentUpon>
     </Compile>
-    <Compile Include="Steps\Registration\RegistrationDetails.cs" />
-    <Compile Include="Website\TextBox.cs" />
+    <Compile Include="Steps\RegistrationSteps.cs" />
+    <Compile Include="Website\WebElements\TextBox.cs" />
+    <Compile Include="Website\WebElements\WebElement.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

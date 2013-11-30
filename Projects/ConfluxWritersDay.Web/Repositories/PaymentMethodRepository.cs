@@ -4,11 +4,6 @@ namespace ConfluxWritersDay.Web.Repositories
 {
     public class PaymentMethodRepository : ConfluxWritersDay.Web.Repositories.IPaymentMethodRepository
     {
-
-        public PaymentMethodRepository()
-        {
-        }
-
         public IEnumerable<KeyValuePair<string, string>> GetAll()
         {
             return new KeyValuePair<string, string>[]             
