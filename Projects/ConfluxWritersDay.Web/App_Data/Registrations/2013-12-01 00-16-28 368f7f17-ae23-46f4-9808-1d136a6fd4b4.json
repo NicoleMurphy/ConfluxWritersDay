@@ -1,0 +1,12 @@
+{
+  "Id": "368f7f17-ae23-46f4-9808-1d136a6fd4b4",
+  "FirstName": "Tim",
+  "LastName": "Murphy",
+  "Address": "1 Fake Street\nDummy Suburb NSW 2000",
+  "EmailAddress": "tim@26tp.com",
+  "TelephoneNumber": "02 9999 8888",
+  "MembershipOrganisation": "CSFG",
+  "DietaryRequirements": "Dummy dietary requirements.",
+  "SpecialRequirements": "Dummy special requirements.",
+  "PaymentMethod": "DirectDeposit"
+}

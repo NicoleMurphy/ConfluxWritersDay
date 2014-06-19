@@ -5,7 +5,7 @@
 
 var app = angular.module('registrationApp', ['field']);
 
-app.controller('RegistrationController', function ($scope) {
+app.controller('RegistrationController', function ($scope, $http) {
 
     $scope.Registration = {
         MembershipOrganisation: ''
@@ -51,8 +51,21 @@ app.controller('RegistrationController', function ($scope) {
         }
     ];
 
-    $scope.submit = function (model) {
-        alert("todo: submit " + model);
+    $scope.addRegistration = function () {
+
+        $http({
+            method: 'POST',
+            url: '/registration',
+            data: $scope.Registration
+        })
+        .success(function (data, status, headers, config) {
+
+            window.location = "/successful-registration";
+
+        }).error(function (data, status, headers, config) {
+            
+            alert(data);
+            
+        });
     };
 });
-

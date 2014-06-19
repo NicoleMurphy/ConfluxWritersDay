@@ -5,7 +5,7 @@ namespace ConfluxWritersDay.Specifications.Website
 {
     public static class Application
     {
-        private const string RootUrl = "http://localhost:12116/";
+        private const string RootUrl = "http://localhost:12116";
 
         static Application()
         {

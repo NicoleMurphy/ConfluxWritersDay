@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ConfluxWritersDay.Web.Repositories
+namespace ConfluxWritersDay.Repositories
 {
     public interface IMembershipOrganisationRepository
     {

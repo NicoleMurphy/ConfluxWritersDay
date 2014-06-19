@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ConfluxWritersDay.Web.Models
+namespace ConfluxWritersDay.DataAnnotations
 {
     public class PaymentMethodAttribute : ValidationAttribute
     {

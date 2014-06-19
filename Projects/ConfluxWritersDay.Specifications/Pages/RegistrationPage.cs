@@ -13,10 +13,12 @@ namespace ConfluxWritersDay.Specifications.Pages
         public readonly MultilineTextBox SpecialRequirements;
         public readonly SelectBox PaymentMethod;
         public readonly SelectBox MembershipOrganisation;
+        public readonly Button Submit;
 
         public RegistrationPage()
         {
             InitializeWebElements("Registration-");
+            Submit = new Button("Submit");
         }
     }
 }

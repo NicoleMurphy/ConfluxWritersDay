@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ConfluxWritersDay.Specifications.Infrastructure.Logging
+namespace ConfluxWritersDay.Infrastructure.Logging
 {
     public interface ILogger
     {

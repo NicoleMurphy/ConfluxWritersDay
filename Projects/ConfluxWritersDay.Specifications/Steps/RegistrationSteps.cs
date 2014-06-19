@@ -1,6 +1,8 @@
-﻿using ConfluxWritersDay.Specifications.Infrastructure;
+﻿using ConfluxWritersDay.Repositories;
+using ConfluxWritersDay.Specifications.Infrastructure;
 using ConfluxWritersDay.Specifications.Pages;
 using ConfluxWritersDay.Specifications.Website;
+using FluentAssertions;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 
@@ -9,7 +11,14 @@ namespace ConfluxWritersDay.Specifications.Steps
     [Binding]
     public class RegistrationSteps
     {
-        protected readonly RegistrationPage RegistrationPage = new RegistrationPage();
+        private readonly RegistrationPage RegistrationPage;
+        private readonly IRegistrationRepository RegistrationRepository;
+
+        public RegistrationSteps(RegistrationPage registrationPage,IRegistrationRepository registrationRepository)
+        {
+            RegistrationPage = registrationPage;
+            RegistrationRepository = registrationRepository;
+        }
 
         [Given(@"I am on the registration page")]
         public void GivenIAmOnTheRegistrationPage()
@@ -80,19 +89,24 @@ namespace ConfluxWritersDay.Specifications.Steps
         [When(@"I submit my registration")]
         public void WhenISubmitMyRegistration()
         {
-            ScenarioContext.Current.Pending();
+            RegistrationPage.Submit.Click();
         }
         
         [Then(@"I will see thank you page")]
         public void ThenIWillSeeThankYouPage()
         {
-            ScenarioContext.Current.Pending();
+            Browser.WaitForUrl("/successful-registration").Should().BeTrue();
         }
         
         [Then(@"I will receive an email")]
         public void ThenIWillReceiveAnEmail()
         {
-            ScenarioContext.Current.Pending();
+            //var emailAddress = RegistrationPage.EmailAddress.Typed;
+            //var attendee = new AttendeeRepository().Get(emailAddress);
+
+            //// todo: hack
+            //json.Contains(string.Format("\"To\": \"{0}\"", emailAddress)).Should().BeTrue();
+            //json.Contains(string.Format("\"Subject\": \"{0}\"", "Conflux Writers Day - Registration")).Should().BeTrue();
         }
     }
 }

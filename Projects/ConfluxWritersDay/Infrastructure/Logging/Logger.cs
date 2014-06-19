@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using Common.Logging;
 
-namespace ConfluxWritersDay.Specifications.Infrastructure.Logging
+namespace ConfluxWritersDay.Infrastructure.Logging
 {
     public class Logger : ILogger
     {

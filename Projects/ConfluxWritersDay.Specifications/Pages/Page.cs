@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using ConfluxWritersDay.Infrastructure.Logging;
 using ConfluxWritersDay.Specifications.Infrastructure;
-using ConfluxWritersDay.Specifications.Infrastructure.Logging;
 using ConfluxWritersDay.Specifications.Website.WebElements;
 
 namespace ConfluxWritersDay.Specifications.Pages

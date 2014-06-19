@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfluxWritersDay.Tests", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfluxWritersDay.Specifications", "Projects\ConfluxWritersDay.Specifications\ConfluxWritersDay.Specifications.csproj", "{1E96ABBC-94C3-48E1-988A-6C9B6ABA3067}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfluxWritersDay", "Projects\ConfluxWritersDay\ConfluxWritersDay.csproj", "{6E511E60-A99A-404D-A75E-FD049049CBC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,10 @@ Global
 		{1E96ABBC-94C3-48E1-988A-6C9B6ABA3067}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E96ABBC-94C3-48E1-988A-6C9B6ABA3067}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E96ABBC-94C3-48E1-988A-6C9B6ABA3067}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E511E60-A99A-404D-A75E-FD049049CBC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E511E60-A99A-404D-A75E-FD049049CBC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E511E60-A99A-404D-A75E-FD049049CBC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E511E60-A99A-404D-A75E-FD049049CBC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

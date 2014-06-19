@@ -38,6 +38,9 @@
     <Reference Include="Common.Logging.NLog20">
       <HintPath>..\..\packages\Common.Logging.NLog20.2.1.2\lib\net40\Common.Logging.NLog20.dll</HintPath>
     </Reference>
+    <Reference Include="FluentAssertions">
+      <HintPath>..\..\packages\FluentAssertions.2.1.0.0\lib\net45\FluentAssertions.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="NLog">
       <HintPath>..\..\packages\NLog.2.1.0\lib\net45\NLog.dll</HintPath>
@@ -66,10 +69,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Infrastructure\IEnumerableExtensions.cs" />
-    <Compile Include="Infrastructure\Logging\ILogger.cs" />
-    <Compile Include="Infrastructure\Logging\Logger.cs" />
     <Compile Include="Infrastructure\MemberInfoExtensions.cs" />
     <Compile Include="Infrastructure\KeyValueStringPair.cs" />
+    <Compile Include="Infrastructure\Settings.cs" />
+    <Compile Include="Infrastructure\SpecFlowHooks.cs" />
+    <Compile Include="Website\WebElements\Button.cs" />
     <Compile Include="Website\WebElements\SelectBox.cs" />
     <Compile Include="Website\WebElements\EmailTextBox.cs" />
     <Compile Include="Website\WebElements\MultilineTextBox.cs" />
@@ -100,6 +104,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="FodyWeavers.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConfluxWritersDay.Web\ConfluxWritersDay.Web.csproj">
+      <Project>{fe473c3b-d783-4181-a830-98b424aaa691}</Project>
+      <Name>ConfluxWritersDay.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ConfluxWritersDay\ConfluxWritersDay.csproj">
+      <Project>{6e511e60-a99a-404d-a75e-fd049049cbc2}</Project>
+      <Name>ConfluxWritersDay</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
