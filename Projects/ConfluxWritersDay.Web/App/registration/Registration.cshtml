@@ -9,14 +9,12 @@
     <script src="/App/registration/Registration.js"></script>
 }
 
-<form name="form" method="post" class="form-horizontal" ng-app="registrationApp" ng-controller="RegistrationController" novalidate>
+@* todo: use angular submit. didn't use because of time pressure. *@
+<form name="form" method="post" class="form-horizontal" ng-app="registrationApp" ng-controller="RegistrationController" ng-submit="addRegistration()">
 
     <fieldset>
-        
-        <legend>Registration</legend>
 
-        @*<input type="text"  ng-model="Registration.FirstName"   placeholder="First Name"    class="input-xlarge" required>
-        <input type="text"  ng-model="Registration.LastName"    placeholder="Last Name"     class="input-xlarge" required>*@
+        <legend>Registration</legend>
 
         <field ng-model="Registration.FirstName" required></field>
         <field ng-model="Registration.LastName" required></field>
@@ -28,8 +26,7 @@
         <field ng-model="Registration.MembershipOrganisation" label="Membership" type="select" ng-options="m.id as m.name for m in MembershipOrganisations"></field>
         <field ng-model="Registration.DietaryRequirements" type="textarea" rows="4"></field>
         <field ng-model="Registration.SpecialRequirements" type="textarea" rows="4"></field>
-        <field ng-model="Registration.PaymentMethod" type="select"></field>
-
+        <field ng-model="Registration.PaymentMethod" label="Payment Method" type="select" ng-options="m.id as m.name for m in PaymentMethods"></field>
 
         <div class="control-group">
             <p>todo: show price. &le; &amp; &gt; 30 members</p>
@@ -37,15 +34,15 @@
 
         <div class="control-group">
             <div class="controls">
-                <button id="Submit" name="Submit" class="btn btn-primary" ng-click="Submit(Registration)">Submit</button>
+                <button id="Submit" name="Submit" class="btn btn-primary">Submit</button>
             </div>
         </div>
 
-        @if (Model.isDeveloperMachine)
+        @if (Model.IsDeveloperMachine)
         {
             <pre>{{Registration | json}}</pre>
         }
-        
+
     </fieldset>
 
 </form>

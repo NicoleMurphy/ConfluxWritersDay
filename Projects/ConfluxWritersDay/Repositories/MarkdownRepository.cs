@@ -2,7 +2,7 @@
 using System.IO;
 using OpenMagic;
 
-namespace ConfluxWritersDay.Web.Repositories
+namespace ConfluxWritersDay.Repositories
 {
     public class MarkdownRepository : IMarkdownRepository
     {

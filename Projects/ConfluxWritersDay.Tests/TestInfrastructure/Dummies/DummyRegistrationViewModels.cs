@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
+using ConfluxWritersDay.Infrastructure;
+using ConfluxWritersDay.Repositories;
 using ConfluxWritersDay.Web.Infrastructure;
-using ConfluxWritersDay.Web.Repositories;
 using ConfluxWritersDay.Web.ViewModels.Home;
 using FakeItEasy;
 using OpenMagic;
@@ -26,7 +25,7 @@ namespace ConfluxWritersDay.Tests.TestInfrastructure.Dummies
             var fields = line.Split(new char[] { '\t' });
             var addressLine2 = RandomNumber.NextInt(0, 2) == 0 ? fields[3] + "\n" : null;
 
-            return new RegistrationViewModel()
+            return new RegistrationViewModel(A.Dummy<ISettings>())
             {
                 FirstName = fields[0],
                 LastName = fields[1],

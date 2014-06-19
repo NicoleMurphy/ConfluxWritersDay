@@ -1,14 +1,9 @@
 ﻿using System.Collections.Generic;
 
-namespace ConfluxWritersDay.Web.Repositories
+namespace ConfluxWritersDay.Repositories
 {
-    public class PaymentMethodRepository : ConfluxWritersDay.Web.Repositories.IPaymentMethodRepository
+    public class PaymentMethodRepository : IPaymentMethodRepository
     {
-
-        public PaymentMethodRepository()
-        {
-        }
-
         public IEnumerable<KeyValuePair<string, string>> GetAll()
         {
             return new KeyValuePair<string, string>[]             

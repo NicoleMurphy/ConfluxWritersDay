@@ -122,6 +122,10 @@
       <Project>{FE473C3B-D783-4181-A830-98B424AAA691}</Project>
       <Name>ConfluxWritersDay.Web</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ConfluxWritersDay\ConfluxWritersDay.csproj">
+      <Project>{6E511E60-A99A-404D-A75E-FD049049CBC2}</Project>
+      <Name>ConfluxWritersDay</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

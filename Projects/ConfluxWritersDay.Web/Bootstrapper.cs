@@ -1,5 +1,6 @@
 ﻿using System.IO;
-using ConfluxWritersDay.Web.Repositories;
+using ConfluxWritersDay.Infrastructure;
+using ConfluxWritersDay.Repositories;
 using Nancy;
 using Nancy.Conventions;
 using Nancy.TinyIoc;
@@ -31,6 +32,16 @@ namespace ConfluxWritersDay.Web
             base.ConfigureApplicationContainer(container);
 
             container.Register<IMarkdownRepository>((c,n) => new MarkdownRepository(this.GetMarkdownFolder(c)));
+            container.Register<ISettings>((c, n) => new Settings(this.GetAppDataFolder(c)));
+        }
+
+        private DirectoryInfo GetAppDataFolder(TinyIoCContainer container)
+        {
+            var rootPathProvider = container.Resolve<IRootPathProvider>();
+            var rootPath = rootPathProvider.GetRootPath();
+            var appDataPath = Path.Combine(rootPath, "App_Data");
+
+            return new DirectoryInfo(appDataPath);
         }
 
         private string GetMarkdownFolder(TinyIoCContainer container)

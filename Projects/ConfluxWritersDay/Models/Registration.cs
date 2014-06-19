@@ -1,14 +1,21 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using ConfluxWritersDay.DataAnnotations;
 using DataAnnotationsExtensions;
 using NullGuard;
 
-namespace ConfluxWritersDay.Web.Models
+namespace ConfluxWritersDay.Models
 {
     [NullGuard(ValidationFlags.Methods | ValidationFlags.Arguments | ValidationFlags.OutValues | ValidationFlags.ReturnValues)]
     public class Registration
     {
         public Registration()
-        { }
+        {
+            Id = Guid.NewGuid();
+        }
+
+        [Required]
+        public Guid Id { get; private set; }
 
         [Required]
         public string FirstName { get; set; }

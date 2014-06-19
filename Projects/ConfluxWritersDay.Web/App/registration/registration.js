@@ -5,33 +5,67 @@
 
 var app = angular.module('registrationApp', ['field']);
 
-app.controller('RegistrationController', function ($scope) {
+app.controller('RegistrationController', function ($scope, $http) {
 
     $scope.Registration = {
         MembershipOrganisation: ''
     };
 
+    // todo: get from repository
     $scope.MembershipOrganisations = [
         {
             'id': '',
-            'name': ""
+            'name': 'none'
         },
         {
-            'id': '10005',
-            'name': "Blort"
+            'id': 'Conflux9',
+            'name': "Conflux 9 Member"
         },
         {
-            'id': '10006',
-            'name': "Two"
+            'id': 'CSFG',
+            'name': "CSFG Member"
         },
         {
-            'id': '10007',
-            'name': "Three"
+            'id': 'ACTWritersCentre',
+            'name': "ACT Writers Centre Member"
         }
     ];
 
-    $scope.submit = function (model) {
-        alert("todo: submit " + model);
+    // todo: get from repository
+    $scope.PaymentMethods = [
+        {
+            'id': '',
+            'name': ''
+        },
+        {
+            'id': 'Cheque',
+            'name': "Cheque"
+        },
+        {
+            'id': 'PayPal',
+            'name': 'PayPal'
+        },
+        {
+            'id': 'DirectDeposit',
+            'name': 'Direct Deposit'
+        }
+    ];
+
+    $scope.addRegistration = function () {
+
+        $http({
+            method: 'POST',
+            url: '/registration',
+            data: $scope.Registration
+        })
+        .success(function (data, status, headers, config) {
+
+            window.location = "/successful-registration";
+
+        }).error(function (data, status, headers, config) {
+            
+            alert(data);
+            
+        });
     };
 });
-
