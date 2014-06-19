@@ -1,1 +1,0 @@
-﻿Classes in this folder could possibly be moved to a NuGet package.
